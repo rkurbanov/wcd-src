@@ -1,0 +1,54 @@
+<!-- BEGIN: /0012/639/034/cn12639034.html --><!-- @TemplateContentLayout(templateRegionName:"topnav.checkout.phonenumber") -->
+<style>
+@media (min-width: 768px) {
+	.wcd-txt_right-at-lg {
+	  text-align: right
+	}
+}
+.limit-width {
+  max-width: 94%;
+}
+
+@media (min-width: 1200px) {
+  .limit-width {
+    max-width: 70.4em;
+  }
+}
+.ipad-only-br {
+	display: none;
+}
+/** override for all ipad devices only to not overlap with logo - 080416 **/
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .ipad-only-br {
+    display: block;
+  }
+  .orderPage #bodyContainer {
+  	margin: .5em 0 0 0;
+  }
+}
+.pageHeader span { line-height:0.9 }
+.checkoutCSNumber { font-family:Arial,Verdana,San-serif; font-weight:bold; font-size:16px; line-height:16px; color:black; }
+.smallDesktopViewBr { display:none }
+@media screen and (max-width: 1200px) {
+	.checkoutCSNumber { font-size:14px; line-height:14px }
+}
+@media screen and (max-width: 1000px) {
+	.checkoutCSNumber { font-size:13px; line-height:13px }
+}
+@media screen and (max-width: 850px) {
+	.smallDesktopViewBr { display:inline }
+}
+@media screen and (max-width: 767px) {
+	.smallDesktopViewBr { display:none }
+}
+</style>
+
+<div class="wcd-txt_right-at-lg">
+	<h1 class="pageHeader"><span>Checkout</span></h1>
+	<span class="checkoutCSNumber">Help Available 7a-1a EST<br class="smallDesktopViewBr" /><a href="tel:+1-877-755-9567">1-877-755-9567</a><br /></span>
+</div>
+<!-- responsive edfs content -->
+<!-- END: /0012/639/034/cn12639034.html -->

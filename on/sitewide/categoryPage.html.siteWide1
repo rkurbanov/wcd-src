@@ -1,0 +1,520 @@
+<!-- BEGIN: /0012/444/389/cn12444389.html --><!-- @TemplateContentLayout(templateRegionName:"categoryPage.html.siteWide1") -->
+
+<!-- BEGIN - WCD Sitewide Container 4 - Category -->
+<!-- BEGIN: /0014/490/454/cn14490454.html --><div id="contentItemContainer10000614" class="14490454">
+<!-- BEGIN WCD Category Page code -->
+
+<!--
+  1. Auto launch size facet by URL param
+  2. WCD Category Hooks and ScrollToCid - OLD
+  3. WCD Category Marketing - NEW
+	4. Mobile Cat Nav
+-->
+
+<!-- BEGIN open size facet menu from URL param -->
+<script type="text/javascript">
+if(location.pathname == "/browse/category.do" && location.search.indexOf("showSizeSelection") >= 0){
+	var openSizeFacetMenu = function() {
+		var temp = setTimeout(function(){
+			jQuery(".tabs--object-facet-size button").trigger("click");
+		},500);
+	};
+
+	jQuery(document).ready(function(){
+		if(typeof ps != "undefined"){
+			ps.subscribe('categoryData:ready', function() {
+				openSizeFacetMenu(true);
+			});
+		}
+	});
+}
+</script>
+<!-- END open size facet menu from URL param -->
+
+<!-- BEGIN WCD Category Hooks & scrollToCid -->
+<script type="text/javascript">
+if( location.pathname == '/browse/category.do' && window["categoryPage"] == null ) {
+
+var wcdCategoryHooks = {
+	debugMode: false,
+	scrollToAnimationSpeed: 1000,
+	init: function() {
+		if( location.search.indexOf('wcdCatHookDebug=true') > -1 ) { wcdCategoryHooks.debugMode = true; }
+
+		// Wait for categoryData:ready event
+		jQuery(document).ready(function(e) {
+			if( wcdCategoryHooks.debugMode ) console.info("wcdCatHooks dom:ready, waiting on catData:ready");
+			
+			// Kill any previous listeners
+			jQuery(document).off('wcdCategoryHooks:gridRendered')
+			
+			// Wait for our event that tells us grid rendered
+			jQuery(document).on('wcdCategoryHooks:gridRendered', function() {
+				// Update grid with our hooks
+				wcdCategoryHooks.updateProductGrids();
+				// Trigger catHook:ready event for ISMs
+				jQuery(document).trigger('wcdCategoryHooks:ready');
+			});
+
+			// First check for 'product-card--link' element, if present the grid has rendered already
+			if( jQuery('.product-card--link').length > 0 ) {
+				if( wcdCategoryHooks.debugMode ) { console.info('wcdCatHooks - product-card--link present, grid rendered before dom:loaded'); }
+				jQuery(document).trigger('wcdCategoryHooks:gridRendered');
+			}
+
+			// Check that pubsub is present and listen for catData:ready. If the above 'if' was hit, this won't do anything on initial page load
+			if( window["ps"] !== undefined && ps.subscribe ) {
+				ps.subscribe('categoryData:ready', function() {
+					if( wcdCategoryHooks.debugMode ) { console.info('categoryData:ready fired'); }
+	
+					// Kill any previous listeners
+					jQuery(document).off('wcdCategoryHooks:gridRendered');
+	
+					// Wait for our event that tells us grid rendered
+					jQuery(document).on('wcdCategoryHooks:gridRendered', function() {
+						// Update grid with our hooks
+						wcdCategoryHooks.updateProductGrids();
+	
+						// Check for scrollToCid for scroll to funx
+						if( location.search.indexOf('scrollToCid=') > -1 ) {
+							if( wcdCategoryHooks.debugMode ) { console.info('scrollToCid detected'); }
+	
+							var scrollToCidTarget = location.search.substr( location.search.indexOf('scrollToCid=') + 12 );
+							if( scrollToCidTarget.indexOf('&') > -1 ) scrollToCidTarget = scrollToCidTarget.substr( 0, scrollToCidTarget.indexOf('&') );
+	
+							/*setTimeout( function() {
+								wcdCategoryHooks.scrollToCid( scrollToCidTarget );
+							}, 1500 );*/
+						}
+	
+						// Trigger catHook:ready event for ISMs
+						jQuery(document).trigger('wcdCategoryHooks:ready');
+					});
+	
+					// Wait for grid to render
+					var catHookAttempts = 0;
+					var catHookMaxAttempts = 5;
+					var catGridRendered = function() {
+						var gridRoot = jQuery('.product-card-grid--group .grid-root');
+						if( gridRoot.length > 0 && window["gap"] !== undefined && gap.viewModel && gap.viewModel.productCategory && gap.viewModel.productCategory.k_products ) {
+							jQuery(document).trigger('wcdCategoryHooks:gridRendered');
+						}
+						else if( catHookAttempts < catHookMaxAttempts ) {
+							setTimeout( function() {
+								catHookAttempts++;
+								catGridRendered();
+							}, 250 );
+						}
+					}
+					catGridRendered();
+				});
+			}
+		});
+	},
+
+	// Updates product grids so WCD can hook into them - to move to OneSite codebase(?)
+	updateProductGrids: function() {
+		var pageGrids = jQuery('.product-card-grid--group');
+		var productData = gap.viewModel.productCategory.k_products();
+
+		var gridElt;
+		var firstProduct;
+		var firstProdCid;
+		if( pageGrids.length > 0 ) {
+			pageGrids.each( function( idx, elt ) {
+				gridElt = jQuery( elt );
+
+				if( jQuery.isArray( productData ) ) {
+					firstProduct = productData[idx];
+					if( firstProduct.products && firstProduct.products[0].cid ) {
+						firstProdCid = firstProduct.products[0].cid;
+						gridElt.attr( 'data-cid', firstProdCid );
+					}
+				}
+
+				/*firstProdCard = gridElt.find('.product-card--link:first');
+				// Adds data attribute of the CID of the subcat
+				if( firstProdCard.length > 0 ) {
+					if( firstProdCard.attr('href') !== undefined ) {
+						firstProdCid = firstProdCard.attr('href');
+						if( firstProdCid != '' && firstProdCid.indexOf('cid=') > -1 ) {
+							firstProdCid = firstProdCid.substr( firstProdCid.indexOf('cid=') + 4 );
+							if( firstProdCid.indexOf('&') > -1 ) {
+								firstProdCid = firstProdCid.substr( 0, firstProdCid.indexOf('&') );
+							}
+							gridElt.attr( 'data-cid', firstProdCid );
+						}
+					}
+				}*/
+			});
+		}
+		if( wcdCategoryHooks.debugMode ) { console.info('Product grids updated with WCD hooks'); }
+	},
+
+	// Scrolls user down to rendered category grid
+	scrollToCid: function( subcatTarget ) {
+		if( wcdCategoryHooks.debugMode ) { console.info('Scrolling to ' + subcatTarget ); }
+
+		var targetOffset = jQuery('.product-card-grid--group[data-cid="' + subcatTarget + '"]');
+		if( targetOffset.length > 0 ) {
+			targetOffset = targetOffset.offset().top;
+			if( wcdCategoryHooks.debugMode ) { console.info('Offset ' + targetOffset ); }
+
+			// Adjust for brand bar on small/med breakpoints
+			if( window["gap"] !== undefined && gap.Mediaqueries && gap.Mediaqueries.currentBP && gap.Mediaqueries.currentBP.size ) {
+				if( gap.Mediaqueries.currentBP.size == 'small' || gap.Mediaqueries.currentBP.size == 'medium' ) {
+					targetOffset = targetOffset - jQuery('.brand-bar').outerHeight();
+				}
+			}
+
+			// Check if Sticky nav present and adjust for height
+			if( jQuery('.wcdStickyCatNav:visible').length > 0 ) {
+				targetOffset = targetOffset - jQuery('.wcdStickyCatNav:visible').outerHeight();
+			}
+
+			jQuery('html, body').animate({ scrollTop: targetOffset }, wcdCategoryHooks.scrollToAnimationSpeed );
+		}
+	}
+}
+wcdCategoryHooks.init();
+
+}
+</script>
+<!-- END WCD Category Hooks & scrollToCid -->
+
+<!-- BEGIN Category Marketing functionality - TO BE ONESITE-IFIED -->
+<script type="text/javascript">
+if( location.pathname == '/browse/category.do' && window["categoryPage"] == null ) {
+
+// 1. Checks for grid-render and fires event
+// 2. Updates grids adding data-cid attribute to make subcat grids easy targets
+// 3. scrollToCid - scrolls to specific data-cid subcat; automatically with URL param or called as JS funx
+// 4. ISM/subcat header content - inserts this content into grid based on instantiation from content item; fires event at end of this
+
+var wcdCategoryMarketing = {
+	debugMode: false,
+	scrollToAnimationSpeed: 1000,
+	pageLoaded: false,
+	categoryGridRendered: false,
+	readyForIsm: false,
+	isRendering: false,
+
+	catHookAttempts: 0,
+	catHookMaxAttempts: 5,
+
+	subcatHeaders: { },
+	isms: { },
+
+	init: function() {
+		if( location.search.indexOf('wcdCatDebug=true') > -1 ) { wcdCategoryMarketing.debugMode = true; }
+
+		jQuery(document).ready(function(e) {
+			// Kill any previous listeners
+			jQuery(document).off('wcdCategoryMarketing:gridRenderComplete');
+
+			// Wait for our event that tells us grid rendered
+			jQuery(document).on('wcdCategoryMarketing:gridRenderComplete', function() {
+				wcdCategoryMarketing.gridRendered();
+			});
+
+			// First check for 'product-card--link' element, if present the grid has rendered already
+			if( jQuery('.product-card--link').length > 0 ) {
+				if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - product-card--link present, grid rendered before dom:loaded'); }
+				jQuery(document).trigger('wcdCategoryMarketing:gridRenderComplete');
+			}
+
+			// Check that pubsub is present and listen for catData:ready. If the above 'if' was hit, this won't do anything on initial page load
+			if( window["ps"] !== undefined && ps.subscribe ) {
+				if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - pubsub present on dom:ready'); }
+
+				ps.subscribe('categoryData:ready', function() {
+					if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - categoryData:ready fired'); }
+
+					// Kill any previous listeners
+					jQuery(document).off('wcdCategoryMarketing:gridRenderComplete');
+
+					// Wait for our event that tells us grid rendered
+					jQuery(document).on('wcdCategoryMarketing:gridRenderComplete', function() {
+						wcdCategoryMarketing.gridRendered();
+					});
+
+					// Wait for grid to render
+					var catGridRendered = function() {
+						var gridRoot = jQuery('.product-card--link');
+						if( gridRoot.length > 0 && window["gap"] !== undefined && gap.viewModel !== undefined && gap.viewModel.productCategory !== undefined && gap.viewModel.productCategory.k_products !== undefined ) {
+							if( wcdCategoryMarketing.debugMode ) {
+								if( wcdCategoryMarketing.pageLoaded === false ) {
+									console.info('wcdCategoryMarketing - product-card--link present, grid rendered after catData:ready on initial load');
+								}
+								else {
+									console.info('wcdCategoryMarketing - product-card--link present, grid rendered after faceting');
+								}
+							}
+							jQuery(document).trigger('wcdCategoryMarketing:gridRenderComplete');
+							wcdCategoryMarketing.catHookAttempts = 0;
+						}
+						else if( wcdCategoryMarketing.catHookAttempts < wcdCategoryMarketing.catHookMaxAttempts ) {
+							setTimeout( function() {
+								wcdCategoryMarketing.catHookAttempts++;
+								if( wcdCategoryMarketing.debugMode ) console.info('wcdCategoryMarketing - catHookAttempts incrememted to ' + wcdCategoryMarketing.catHookAttempts );
+								catGridRendered();
+							}, 250 );
+						}
+					}
+					catGridRendered();
+
+				});
+			}
+			// Else pubsub not there so we have no hook to the category page
+			else {
+				if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - pubsub not present on dom:loaded, no hook available'); }
+			}
+    });
+	},
+
+	// Insert in-sort marketing - subcat headers/in-grid marketing checked whether already ready or if need to wait
+	//  sometimes event fires too quickly on SOP (sitewide code above CID code)
+	inSortMarketing: function( subcatHeaders, isms ) {
+		if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - attaching subcat headers and ISMs to wcdCategoryMarketing'); }
+
+		if( subcatHeaders !== undefined && subcatHeaders.subcatHeaders ) { wcdCategoryMarketing.subcatHeaders = subcatHeaders.subcatHeaders; }
+		if( isms !== undefined && isms.isms ) { wcdCategoryMarketing.isms = isms.isms; }
+
+		// If already ready for ISM, the event has already fired after initial page load
+		if( wcdCategoryMarketing.readyForIsm === true ) {
+			if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - readyForIsm already happened on page load, rendering'); }
+			wcdCategoryMarketing.inSortMarketingRender();
+			wcdCategoryMarketing.readyForIsm = false;
+		}
+
+		// If not, and on subsequent grid renders, insert the ISMs
+		jQuery(document).on('wcdCategoryMarketing:readyForIsm', function() {
+			if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - readyForIsm heard, rendering'); }
+			wcdCategoryMarketing.inSortMarketingRender();
+		});
+
+	},
+
+	// ISM render function - inserts into grid and calls JS callback as needed
+	inSortMarketingRender: function() {
+		if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - rendering subcat headers and ISMs'); }
+
+		// Set isRendering to true
+		if( ! wcdCategoryMarketing.isRendering ) {
+			wcdCategoryMarketing.isRendering = true;
+
+			// Subcat headers
+			if( ! jQuery.isEmptyObject( wcdCategoryMarketing.subcatHeaders ) ) {
+				if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - rendering subcat headers'); }
+
+				// Loop through subcat headers and render if applicable
+				var subcatHeaderToOverride = [ ];
+				var subcatHeaderMarketing = [ ];
+				jQuery.each( wcdCategoryMarketing.subcatHeaders, function( idx, subcatHeader ) {
+					if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - attempting to render subcat header for ' + subcatHeader.subcatCid ); }
+
+					// Find your subcat and, if there and if marketing class there, override the header
+					subcatHeaderToOverride = jQuery('.product-card-grid--group[data-subcat-cid="' + subcatHeader.subcatCid + '"] .subheading');
+					subcatHeaderMarketing = jQuery('.' + subcatHeader.marketing ).clone();
+
+					// Update subcat header if both header element, marketing element exist and header is not already updated
+					if( subcatHeaderToOverride.length > 0 && subcatHeaderMarketing.length > 0 && subcatHeaderToOverride.children().hasClass( subcatHeader.marketing ) === false ) {
+						if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - rendered subcat header for ' + subcatHeader.subcatCid ); }
+
+						// Move marketing class to where we want it
+						subcatHeaderToOverride.html( subcatHeaderMarketing );
+
+						// If this header has a JS callback specific to it, run it!
+						if( subcatHeader.jsCallback != '' ) {
+							subcatHeader.jsCallback();
+						}
+					}
+
+				});
+			}
+
+			// ISMs
+			if( ! jQuery.isEmptyObject( wcdCategoryMarketing.isms ) ) {
+				if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - rendering ISMs'); }
+
+				var ismMarketing = [ ];
+				var ismGrid = [ ];
+				jQuery.each( wcdCategoryMarketing.isms, function( idx, ism ) {
+					if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - attempting to render ISM for ' + ism.subcatCid ); }
+
+					ismGrid = jQuery('.product-card-grid--group[data-subcat-cid="' + ism.subcatCid + '"] .grid-root');
+					ismMarketing = jQuery('.' + ism.marketing ).clone();
+
+					// Insert of both grid element and marketing element exist
+					if( ismGrid.length > 0 && ismMarketing.length > 0 ) {
+						if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - rendered ISM for ' + ism.subcatCid ); }
+
+						// Write shell for ISM based on size
+						if( ism.size == '1' ) {
+							ismMarketing.addClass('g-1-2 g-lg-1-3 g-xl-1-3 g-1280-1-4');
+						}
+						else if( ism.size == '2' ) {
+							ismMarketing.addClass('g-1-1 g-lg-2-3 g-xl-2-3 g-1280-1-2');
+						}
+
+						// Insert into grid based on position and if not inserted already
+						if( ism.position == 'beginning' && ismGrid.children(":first").hasClass( ism.marketing ) === false ) {
+							// Remove to prevent duplication
+							jQuery('.product-card-grid--group[data-subcat-cid="' + ism.subcatCid + '"] .grid-root .' + ism.marketing ).remove();
+							ismGrid.prepend( ismMarketing );
+							if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - ISM dup removed and prepended to ' + ism.subcatCid, ismGrid, ism ); }
+						}
+						else if( ism.position == 'end' && ismGrid.children(":last").hasClass( ism.marketing ) === false ) {
+							// Remove to prevent duplication
+							jQuery('.product-card-grid--group[data-subcat-cid="' + ism.subcatCid + '"] .grid-root .' + ism.marketing ).remove();
+							ismGrid.append( ismMarketing );
+							if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - ISM dup removed and appended to ' + ism.subcatCid, ismGrid, ism ); }
+						}
+
+						// If this ISM has a JS callback specific to it, run it!
+						if( ism.jsCallback != '' ) {
+							ism.jsCallback();
+						}
+					}
+				});
+			}
+
+			// All subcat headers and ISMs have now rendered
+			if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - subcat headers and ISM rendering complete'); }
+			jQuery(document).trigger('wcdCategoryMarketing:ismRenderComplete');
+
+			wcdCategoryMarketing.isRendering = false;
+		}
+	},
+
+	// Post-grid rendered functionality
+	gridRendered: function() {
+		// Attach subcat-cid to each
+		wcdCategoryMarketing.updateProductGrids();
+
+		// Check for scrollToCid for scroll to funx - only on initial page load
+		if( ( location.search.indexOf('scrollToCid=') > -1 || location.search.indexOf('scrollToTop=true') > -1 ) && wcdCategoryMarketing.pageLoaded === false ) {
+			if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - scrollToCid detected'); }
+
+			var scrollToCidTarget = location.search.substr( location.search.indexOf('scrollToCid=') + 12 );
+			if( scrollToCidTarget.indexOf('&') > -1 ) scrollToCidTarget = scrollToCidTarget.substr( 0, scrollToCidTarget.indexOf('&') );
+
+			if( location.search.indexOf('scrollToTop=true') > -1 ) { scrollToCidTarget = 'top'; }
+
+			setTimeout( function() {
+				wcdCategoryMarketing.scrollToCid( scrollToCidTarget );
+			}, 1500 );
+		}
+
+		// Trigger wcdCategoryMarketing:ready event for ISMs
+		if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - ready for ISM'); }
+		jQuery(document).trigger('wcdCategoryMarketing:readyForIsm');
+		wcdCategoryMarketing.readyForIsm = true;
+
+		// Initial Load
+		if( wcdCategoryMarketing.pageLoaded === false ) {
+			if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - initial page render complete'); }
+
+			wcdCategoryMarketing.pageLoaded = true;
+			jQuery(document).trigger('wcdCategoryMarketing:initialPageRenderComplete');
+		}
+	},
+
+	// Updates product grids so WCD can hook into them - data-subcat-cid to each sub-grid makes easy targets
+	updateProductGrids: function() {
+		if( window["gap"] !== undefined && gap.viewModel !== undefined && gap.viewModel.productCategory !== undefined && gap.viewModel.productCategory.k_products !== undefined ) {
+			var pageGrids = jQuery('.product-card-grid--group');
+			var productData = gap.viewModel.productCategory.k_products();
+
+			var gridElt;
+			var firstProduct;
+			var firstProdCid;
+			if( pageGrids.length > 0 ) {
+				pageGrids.each( function( idx, elt ) {
+					gridElt = jQuery( elt );
+
+					if( jQuery.isArray( productData ) ) {
+						firstProduct = productData[idx];
+						if( firstProduct.products && firstProduct.products[0].cid ) {
+							firstProdCid = firstProduct.products[0].cid;
+							gridElt.attr( 'data-subcat-cid', firstProdCid );
+						}
+					}
+				});
+			}
+			if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - product grids updated with data-subcat-cid'); }
+		}
+	},
+
+	// Scrolls user down to rendered category grid
+	scrollToCid: function( subcatTarget ) {
+		if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - scrolling to ' + subcatTarget ); }
+
+		var targetOffset = [ ];
+		if( subcatTarget == 'top' ) {
+			targetOffset = jQuery('.product-card-grid--group:nth-child(1)');
+		}
+		else {
+			targetOffset = jQuery('.product-card-grid--group[data-subcat-cid="' + subcatTarget + '"]');
+		}
+
+		if( targetOffset.length > 0 ) {
+			targetOffset = targetOffset.offset().top;
+			if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - offset ' + targetOffset ); }
+
+			// Adjust for brand bar on small/med breakpoints
+			if( window["gap"] !== undefined && gap.Mediaqueries && gap.Mediaqueries.currentBP && gap.Mediaqueries.currentBP.size ) {
+				if( gap.Mediaqueries.currentBP.size == 'small' || gap.Mediaqueries.currentBP.size == 'medium' ) {
+
+					var universalBarHeight = 44; //add height of Universality Mobile Bar
+					targetOffset = targetOffset - jQuery('.brand-bar').outerHeight() - universalBarHeight;
+					//targetOffset = targetOffset - jQuery('.brand-bar').outerHeight();
+					if( wcdCategoryMarketing.debugMode ) { console.info('wcdCategoryMarketing - brand bar offset ' + targetOffset ); }
+				}
+			}
+
+			// Check if Sticky nav present and adjust for height
+			if( jQuery('.wcdStickyCatNav:visible').length > 0 ) {
+				targetOffset = targetOffset - jQuery('.wcdStickyCatNav:visible').outerHeight();
+			}
+
+			jQuery('html, body').animate({ scrollTop: targetOffset }, wcdCategoryMarketing.scrollToAnimationSpeed );
+		}
+	}
+}
+wcdCategoryMarketing.init();
+
+}
+</script>
+<!-- END Category Marketing functionality - TO BE ONESITE-IFIED -->
+
+<!--Begin 4/6/2017: Override Dynamic Content & Trim Header for category pages -->
+<script type="text/javascript">
+
+if(location.pathname == "/browse/category.do"){
+	jQuery(".sidebar-navigation--item.sidebar-navigation--header span:contains('DYNAMIC CONTENT')").css('display','none');
+	jQuery(".sidebar-navigation--item.sidebar-navigation--header span:contains('Gift Cards')").css('display','none');
+}
+</script>
+
+<!--End : Override Dynamic Content & Trim Header for category cid 6036 -->
+
+<!-- BEGIN Mobile category nav min -->
+<style type="text/css">
+#wcd__catNav__wrapper{width:100%;font-size:16px;font-family:FranklinGothic,"Open Sans",Helvetica Neue,Helvetica,Arial,Roboto,sans-serif;background-color:#003764;position:relative;overflow:hidden;z-index:5}#wcd__catNav__opacity-layer{width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;background:rgba(4,71,122,1);background:-moz-linear-gradient(left,rgba(4,71,122,1) 0,rgba(4,71,122,0) 25%,rgba(4,71,122,0) 75%,rgba(4,71,122,.93) 100%);background:-webkit-gradient(left top,right top,color-stop(0,rgba(4,71,122,1)),color-stop(25%,rgba(4,71,122,0)),color-stop(75%,rgba(4,71,122,0)),color-stop(100%,rgba(4,71,122,.93)));background:-webkit-linear-gradient(left,rgba(4,71,122,1) 0,rgba(4,71,122,0) 25%,rgba(4,71,122,0) 75%,rgba(4,71,122,.93) 100%);background:-o-linear-gradient(left,rgba(4,71,122,1) 0,rgba(4,71,122,0) 25%,rgba(4,71,122,0) 75%,rgba(4,71,122,.93) 100%);background:-ms-linear-gradient(left,rgba(4,71,122,1) 0,rgba(4,71,122,0) 25%,rgba(4,71,122,0) 75%,rgba(4,71,122,.93) 100%);background:linear-gradient(to right,rgba(4,71,122,1) 0,rgba(4,71,122,0) 25%,rgba(4,71,122,0) 75%,rgba(4,71,122,.93) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#04477a', endColorstr='#04477a', GradientType=1 )}#wcd__catNav__opacity-layer::before{content:'';width:0;height:15px;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:15px solid #fff;margin:0 auto;position:absolute;bottom:-5px;left:calc(50% - 15px)}#wcd__catNav__items{transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);transition-timing-function:cubic-bezier(.13,.15,.11,.96);-webkit-transition-timing-function:cubic-bezier(.13,.15,.11,.96);-moz-transition-timing-function:cubic-bezier(.13,.15,.11,.96)}.wcd__catNav__item{display:inline-block;color:#fff;font-size:86.7%;text-transform:uppercase;text-align:center;padding:15px;letter-spacing:2px}
+
+</style>
+
+<script type="text/javascript">
+if( location.pathname == '/browse/category.do' ) {
+
+	var CategoryNavObj=function(){if(this.subcatArray=[],window.hasOwnProperty("gap")&&gap.hasOwnProperty("viewModel")&&gap.viewModel.hasOwnProperty("styleFacet")&&gap.viewModel.styleFacet.hasOwnProperty("k_options")&&"function"==typeof gap.viewModel.styleFacet.k_options){var t=gap.viewModel.styleFacet.k_options();for(i=0;i<t.length;i++){var e={};e.id=t[i].id,e.name=t[i].name,this.subcatArray.push(e)}}};CategoryNavObj.prototype={constructor:CategoryNavObj,init:function(){var t=jQuery("<div id='wcd__catNav__wrapper'></div>");for(t.append("			<div id='wcd__catNav__opacity-layer'></div>			<div id='wcd__catNav__items'></div>		"),t.find("#wcd__catNav__items").append("			<div class='wcd__catNav__item' data-subcatId='all'>See All</div>		"),i=0;i<this.subcatArray.length;i++)t.find("#wcd__catNav__items").append("				<div class='wcd__catNav__item' data-subcatId='"+this.subcatArray[i].id+"'>"+this.subcatArray[i].name+"</div>			");t.insertAfter(".marketing-content.hide-at-lg"),this.createTrackingId(),this.setCategoryNavProperties(),this.makeNavSticky(),jQuery(document).trigger("wcd-categoryNav:ready")},setCategoryNavProperties:function(){var t=this;this.items=jQuery("#wcd__catNav__items"),this.opacityLayer=jQuery("#wcd__catNav__opacity-layer"),this.menuWidth=0,jQuery(".wcd__catNav__item").each(function(){t.menuWidth=t.menuWidth+jQuery(this).outerWidth()});var e=this.items.children().clone();e.appendTo(this.items);var a=this.items.children().clone();a.prependTo(this.items);var i=4*this.menuWidth+2*this.items.children().length;this.items.css({width:i+"px"}),this.minThresh=-1.2*this.menuWidth,this.maxThresh=-2.1*this.menuWidth;var r=gap.viewModel.styleFacet.k_selected();if(r.length>0)var s=jQuery(jQuery(".wcd__catNav__item[data-subcatId='"+r[0]+"']")[2]);else var s=jQuery(jQuery(".wcd__catNav__item[data-subcatId='all']")[2]);s.addClass("active"),this.centerActiveNavItem(s,!1),this.addTouchHandlers()},centerActiveNavItem:function(t,e){var a=jQuery(window).width()/2-t.outerWidth()/2,i=this.createTranslateString(a-(t.offset().left-this.items.offset().left)),r=e?"200ms":"0ms";this.animateMenu(i,r)},animateMenu:function(t,e){this.items.css({transform:t,"-webkit-transform":t,"-moz-transform":t,"transition-duration":e,"-webkit-transition-duration":e,"-moz-transition-duration":e})},createLoop:function(t){var e=this.parseMatrix(this.items.css("transform")),a=this.items.children().length/4;if(t){jQuery(".wcd__catNav__item:last-child").after(jQuery(".wcd__catNav__item:nth-child(-n+"+a+")"));var i=e+this.menuWidth}else{jQuery(".wcd__catNav__item:first-child").before(jQuery(".wcd__catNav__item:nth-last-child(-n+"+a+")"));var i=e-this.menuWidth}this.animateMenu(this.createTranslateString(i),"0ms")},addTouchHandlers:function(){function t(){var t=(new Date).getTime();return t}var e=this;jQuery(".nav-trigger,.menuListItem.gm_category").on("click",function(){setTimeout(function(){jQuery(".nav-shift").hasClass("category-nav-is-open")?jQuery("#wcd__catNav__wrapper").hide():jQuery("#wcd__catNav__wrapper").fadeIn()},60)}),jQuery(".off-canvas--isolation-layer").on("touchstart",function(){jQuery("#wcd__catNav__wrapper").fadeIn()});var a,i,r,s,n,c,o,d=0,u=50;this.supressScrollFx=!1,this.layerVisible=!0,this.opacityLayer.on("touchstart",function(){jQuery(this).hide()}),this.items.on("touchstart",function(u){u.stopPropagation(),jQuery(this).stop(!0,!0),a=e.parseMatrix(e.items.css("transform")),a>e.minThresh?(e.createLoop(!1),a=e.parseMatrix(e.items.css("transform"))):a<e.maxThresh&&(e.createLoop(!0),a=e.parseMatrix(e.items.css("transform"))),i=Math.round(event.changedTouches[0].clientX),r=Math.round(event.changedTouches[0].clientY),d=0,s=0,c=i,n=t(),o=!1}),this.items.on("touchmove",function(r){r.stopPropagation(),event.preventDefault(),o=!0,curX=Math.round(event.changedTouches[0].clientX),d=curX-i,s=(curX-c)/(t()-n);var h=e.createTranslateString(a+d);e.animateMenu(h,"0ms"),Math.abs(d)>u&&(i=curX,d=0,a=e.parseMatrix(e.items.css("transform"))),c=curX,n=t()}),this.items.on("touchend",function(t){if(o){s>20?s=20:-20>s&&(s=-20);var a=e.parseMatrix(e.items.css("transform"))+50*s;a>0&&(a=-200),e.animateMenu(e.createTranslateString(a),"500ms")}else{e.supressScrollFx=!0,e.centerActiveNavItem(jQuery(event.target),!0),e.opacityLayer.show(),e.layerVisible=!0;var i=jQuery(event.target).attr("data-subcatId");if("all"!=i){var r="pageId=0";if(void 0!==window.wcdDefaultDeptFacetnator&&void 0!==wcdDefaultDeptFacetnator.bboyCategoriesHideFacet&&void 0!==wcdDefaultDeptFacetnator.bgirlCategoriesHideFacet){var n=location.search.substr(location.search.indexOf("cid=")+4);n.indexOf("&")>-1&&(n=n.substr(0,n.indexOf("&"))),jQuery.inArray(n,wcdDefaultDeptFacetnator.bgirlCategoriesHideFacet)>-1?r+="&department=165":jQuery.inArray(n,wcdDefaultDeptFacetnator.bboyCategoriesHideFacet)>-1&&(r+="&department=166")}r+="&style="+i,location.hash=r}else location.hash="pageId=0";e.scrollToSubhead(),wcdLib.trackValue(event.target,e.trackingId,e.trackingId,"eVar7")}})},scrollToSubhead:function(){var t=this;this.navIsSticky||this.fixNav(),this.supressVerticalScrollFx=!0,jQuery("body").animate({scrollTop:jQuery(jQuery(".subheading")[0]).offset().top-t.logoHeight-t.navHeight+4+"px"},400),setTimeout(function(){t.supressVerticalScrollFx=!1},400)},makeNavSticky:function(){var t=this;this.navObj=jQuery("#wcd__catNav__wrapper"),this.navHeight=this.navObj.outerHeight(),this.navOffset=this.navObj.offset().top,this.logoHeight=jQuery(".icon-old-navy-outer").outerHeight()+jQuery(".universal-nav").outerHeight(),this.navIsSticky=!1,this.supressVerticalScrollFx=!1,jQuery(window).on("scroll",function(){t.supressVerticalScrollFx||(jQuery(this).scrollTop()+t.logoHeight>=t.navOffset&&!t.navIsSticky?t.fixNav():jQuery(this).scrollTop()+t.logoHeight<t.navOffset&&t.navIsSticky&&t.releaseNav())})},fixNav:function(){this.navObj.css({position:"fixed",top:this.logoHeight+"px"}),this.navIsSticky=!0},releaseNav:function(){this.navObj.css({position:"relative",top:"auto"}),this.navIsSticky=!1},createTranslateString:function(t){var e="translate3d("+t+"px,0,0)";return e},parseMatrix:function(t){var e=t.substr(t.indexOf("(")+1,t.indexOf(")")-1-t.indexOf("(")),a=e.split(","),i=parseInt(a[4]);return i},createTrackingId:function(){this.trackingId="Mobile_";var t=wcdLib.getCurrentDivisionName(),e="categoryPage";if("undefined"!=typeof jQuery(".cat-page--title--text").html())var e=jQuery(".cat-page--title--text").html();if(e=e.replace(/\s/g,"-"),t.match(/plus/i))t="WP";else if(t.match(/maternity/i))t="Mat";else if(t.match(/(toddler|baby)/)){t=t.slice(0,1);var a=["6285","47926","41941","23270","1036200","64257"];t+=a.indexOf(gapMobile.categoryId)>-1?"G":"B"}else"onDivision"!=t&&(t=t.slice(0,1));this.trackingId+=e+"_"+t+"_TextNav"}};var initCategoryNav=function(){var t=!1;if(jQuery(".product-card--link").length>0){if(!t){t=!0;var e=new CategoryNavObj;e.subcatArray.length>2&&e.init()}}else jQuery(document).ready(function(){if(jQuery(".product-card--link").length>0){if(!t){t=!0;var e=new CategoryNavObj;e.subcatArray.length>2&&e.init()}}else"ps"in window&&ps.subscribe&&ps.subscribe("categoryData:productsOnPage",function(){if(!t){t=!0;var e=new CategoryNavObj;e.subcatArray.length>2&&e.init()}})})};!function(t){"ontouchstart"in window&&jQuery(window).width()<768&&location.pathname.indexOf("category.do")>-1&&t.indexOf(gidLib.getQuerystringParam("cid"))>-1&&"undefined"!=typeof wcdLib&&"undefined"!=typeof wcdLib.pageDataLayer&&(jQuery.isEmptyObject(wcdLib.pageDataLayer)?jQuery(document).on("wcdDataLayer:ready",function(){initCategoryNav()}):initCategoryNav())}(["5475","15292","85729","72091","5671","7322","7240","5668","5798","48687","5856","5848","5211","1031103","5249","5199","6070","1013969","36516","6054","1013976","36097","5934","5936","6285","47926","41941","37227","37195","37257","9619","37255","23270","1036200","64257","23276","1036201","64269","1068824","1069789","1069581","1069745","1069730","1069817","1069818","68066","1063472"]);
+}
+</script>
+<!-- END Mobile category nav -->
+
+<!-- END WCD Category Page code -->
+</div><!-- END: /0014/490/454/cn14490454.html -->
+<!-- END - WCD Sitewide Container 4 -->
+
+<!-- END: /0012/444/389/cn12444389.html -->

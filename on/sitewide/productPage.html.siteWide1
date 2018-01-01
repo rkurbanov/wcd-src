@@ -1,0 +1,312 @@
+<!-- BEGIN: /0012/444/389/cn12444389.html --><!-- @TemplateContentLayout(templateRegionName:"productPage.html.siteWide1") -->
+
+<!-- BEGIN - WCD Sitewide Container 3 - Product -->
+<!-- BEGIN: /0014/436/055/cn14436055.html --><div id="contentItemContainer10000615" class="14436055">
+<!-- BEGIN WCD Product Page code -->
+
+<!--
+ - Product Page Social Media Buttons - FB Like, PinIt (commented out)
+ - Pixlee Product Page ONLY
+ - Prabhu's fb code for pdp sop 10/16/17
+ - Prabhu's "pin it" code for pdp sop 10/16/17
+ - 9/20 Tealium InlineBagAdd Patch TEAL-184
+ - 11/11/2017 : INC2169602 - when product data comes undefined-move to ecom product page
+-->
+
+<!-- BEGIN Product Page Social Media Buttons - FB Like, PinIt -->
+<!--script type="text/javascript">
+if( "/browse/product.do" == location.pathname ) {
+	
+var mkt_socialIconsProduct={debugMode:!1,fbLikeActive:!1,pinItActive:!1,pageTarget:[],prodName:"",prodStyleId:"",fbLikeUrl:"https://www.facebook.com/plugins/like.php?href=",searchDexBaseUrl:"",pinBtnUrl:"https://pinterest.com/pin/create/button/?url=",pinItUrl:encodeURIComponent(window.location.href),pinItProdName:"",pinItImgUrl:"",pinItStr:"",secureDomain:"",socialIconStr:"",init:function(o,t){location.search.indexOf("socialIconDebug=true")>-1&&(mkt_socialIconsProduct.debugMode=!0),(o===!0||t===!0)&&(mkt_socialIconsProduct.fbLikeActive=o,mkt_socialIconsProduct.pinItActive=t,jQuery(document).ready(function(){mkt_socialIconsProduct.domReadyHandler()}))},domReadyHandler:function(){mkt_socialIconsProduct.pageTarget=jQuery(".social-links"),mkt_socialIconsProduct.pageTarget.length>0&&(mkt_socialIconsProduct.prodName=gap.pageProductData.name,mkt_socialIconsProduct.prodStyleId=gap.pageProductData.styleId,mkt_socialIconsProduct.fbLikeActive&&(mkt_socialIconsProduct.searchDexBaseUrl=mkt_socialIconsProduct.getSearchDexBaseUrl(),mkt_socialIconsProduct.addFbLikeBtn()),mkt_socialIconsProduct.pinItActive&&(mkt_socialIconsProduct.secureDomain=mkt_socialIconsProduct.findSecureDomain(),mkt_socialIconsProduct.addPinItBtn()),""!==mkt_socialIconsProduct.socialIconStr&&(jQuery(".social-links").append(mkt_socialIconsProduct.socialIconStr),mkt_socialIconsProduct.pinItActive&&mkt_socialIconsProduct.addClickPinItButton()))},addFbLikeBtn:function(){if(void 0!==window.gap&&void 0!==gap.pageProductData&&void 0!==gap.pageProductData.name&&void 0!=gap.pageProductData.styleId){var o=mkt_socialIconsProduct.prodName.replace(/\s+/g,"-").toLowerCase(),t=escape(o+"-P"+mkt_socialIconsProduct.prodStyleId+".jsp?tid=atsm000000");mkt_socialIconsProduct.socialIconStr+='<div class="fbLikeBtn"><iframe src="'+mkt_socialIconsProduct.fbLikeUrl+mkt_socialIconsProduct.searchDexBaseUrl+t+'&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" allowTransparency="true"></iframe></div>'}},addPinItBtn:function(){if(void 0!==window.ko&&void 0!==ko.postbox&&void 0!==ko.postbox.topicCache){var o=ko.postbox.topicCache["buyBox-selectedColor"];if(void 0!==o.value&&void 0!==o.value.largeImagePath){var t=ko.postbox.topicCache["buyBox-selectedColor"].value.largeImagePath;mkt_socialIconsProduct.pinItImgUrl=encodeURIComponent(mkt_socialIconsProduct.secureDomain+t)}}mkt_socialIconsProduct.pinItProdName=encodeURIComponent(mkt_socialIconsProduct.prodName).replace("'",""),mkt_socialIconsProduct.pinItStr=mkt_socialIconsProduct.pinBtnUrl+mkt_socialIconsProduct.pinItUrl+"&media="+mkt_socialIconsProduct.pinItImgUrl+"&description="+mkt_socialIconsProduct.pinItProdName,mkt_socialIconsProduct.socialIconStr+='<div class="pinItBtn"><img src="/Asset_Archive/ONWeb/content/0012/443/888/assets/builder_pinit.png" /></div>'},addClickPinItButton:function(){void 0!==window.ko&&void 0!==ko.postbox&&void 0!==ko.postbox.subscribe&&ko.postbox.subscribe("buyBox-selectedColor",function(o){if(void 0!==ko.postbox.topicCache){var t=ko.postbox.topicCache["buyBox-selectedColor"];if(void 0!==t.value&&void 0!==t.value.largeImagePath){var c=ko.postbox.topicCache["buyBox-selectedColor"].value.largeImagePath;mkt_socialIconsProduct.pinItImgUrl=encodeURIComponent(mkt_socialIconsProduct.secureDomain+c)}}mkt_socialIconsProduct.pinItStr=mkt_socialIconsProduct.pinBtnUrl+mkt_socialIconsProduct.pinItUrl+"&media="+mkt_socialIconsProduct.pinItImgUrl+"&description="+mkt_socialIconsProduct.pinItProdName,jQuery(".pinItBtn").off("click"),jQuery(".pinItBtn").click(function(o){mkt_socialIconsProduct.pinItTracking(),mkt_socialIconsProduct.launchPin()}),mkt_socialIconsProduct.debugMode&&console.log("new pin str + "+mkt_socialIconsProduct.pinItStr)}),jQuery(".pinItBtn").click(function(o){mkt_socialIconsProduct.pinItTracking(),mkt_socialIconsProduct.launchPin()})},launchPin:function(){window.open(mkt_socialIconsProduct.pinItStr,"pinIt","toolbar=0,status=0,width=620,height=500")},pinItTracking:function(){var o="GOLPin";return location.hostname.indexOf("bananarepublic")>-1?o="BROLPin":location.hostname.indexOf("oldnavy")>-1?o="ONOLPin":location.hostname.indexOf("athleta")>-1&&(o="ATOLPin"),wcdLib.trackValue(this,o,o,"eVar6"),!0},getSearchDexBaseUrl:function(){var o=location.hostname,t="gap",c=".com",a="";return o.indexOf("bananarepublic")>-1?t="bananarepublic":o.indexOf("oldnavy")>-1?t="oldnavy":o.indexOf("athleta")>-1?t="athleta":o.indexOf("gapfactory")>-1?t="gapfactory":o.indexOf("bananarepublicfactory")>-1?t="bananarepublicfactory":o.indexOf("gapcanada")>-1&&(t="gapcanada"),".ca"==o.substr(o.length-3)?c=".ca":".uk"==o.substr(o.length-3)?c=".co.uk":".eu"==o.substr(o.length-3)?c=".eu":".jp"==o.substr(o.length-3)&&(c=".co.jp"),a="http://www."+t+c+"/products/",encodeURIComponent(a)},findSecureDomain:function(){var o=location.hostname,t="www",c=".gap.com",a="";return o.indexOf("bananarepublic")>-1?t="bananarepublic":o.indexOf("oldnavy")>-1?t="oldnavy":o.indexOf("athleta")>-1&&(t="athleta"),o.indexOf("gapfactory.com")>-1?c=".gapfactory.com":".ca"==o.substr(o.length-3)?c=".gapcanada.ca":".uk"==o.substr(o.length-3)?c=".gap.co.uk":".eu"==o.substr(o.length-3)?c=".gap.eu":".jp"==o.substr(o.length-3)&&(c=".gap.co.jp"),a="https://secure-"+t+c}};mkt_socialIconsProduct.init(!0,!0)
+
+}
+</script-->
+<!-- END Product Page Social Media Buttons - FB Like, PinIt -->
+
+<!-- BEGIN Pixlee analytics - product add-to-bag and view -->
+<script type="text/javascript">
+if( location.pathname == "/browse/product.do" ) {
+
+var wcdPixleeAnalytics = {
+	pixleeAnalytics: '', 
+	
+	init: function() {
+		jQuery(window).load(function(e) {
+			wcdPixleeAnalytics.pixleeLoader();
+		});
+	},
+	
+	pixleeLoader: function() {
+		// Create script element for events JS
+		var pxScript = document.createElement('script');
+		pxScript.type = 'text/javascript';
+		pxScript.async = true;
+
+		pxScript.onload = function() {
+			if( typeof Pixlee_Analytics !== "undefined" ) {
+				wcdPixleeAnalytics.pixleeAnalytics = new Pixlee_Analytics("9vJOFztalYsZuBngOcoX");
+				jQuery(document).trigger("wcd:pixlee_analytics-ready");
+				wcdPixleeAnalytics.prodPageAddToBagListener();
+			}
+		}
+		pxScript.src = "https://photos.pixlee.com/javascripts/embed/pixlee_events.js";
+		jQuery("body").append( pxScript );
+
+		// Create script element for commerce JS
+		var pxcScript = document.createElement('script');
+		pxcScript.type = 'text/javascript';
+		pxcScript.async = true;
+		pxcScript.src = "//assets.pixlee.com/assets/pixlee_commerce_1_0_0.js";
+		jQuery("body").append( pxcScript );
+	},
+	
+	prodPageAddToBagListener: function() {
+		if( window["ko"] !== undefined && ko.postbox && ko.postbox.subscribe ) {
+			ko.postbox.subscribe('add-to-bag-success', function(data) {
+				
+				var bagData = data.inlineBagModelData;
+				var addToBagSku = '';
+				var addToBagQty = '';
+				var addToBagPrice = '';
+				
+				if( bagData.inlineBagItems && jQuery.isArray( bagData.inlineBagItems ) ) {
+					if( bagData.inlineBagItems.length > 0 ) {
+						if( bagData.inlineBagItems[0].sku !== undefined ) { 
+							addToBagSku = bagData.inlineBagItems[0].sku;
+						}
+						if( bagData.inlineBagItems[0].quantity !== undefined ) {
+							addToBagQty = bagData.inlineBagItems[0].quantity;
+						}
+						if( bagData.inlineBagItems[0].unlocalizedCurrentPrice !== undefined ) {
+							addToBagPrice = bagData.inlineBagItems[0].unlocalizedCurrentPrice;
+						}
+						
+						wcdPixleeAnalytics.pixleeAnalytics.events.trigger('add:to:cart', {
+							"product_sku" : addToBagSku,
+							"quantity" : addToBagQty,
+							"price" : addToBagPrice
+						});
+					}
+				}
+			});
+		}
+	}
+}
+wcdPixleeAnalytics.init();
+
+}
+</script>
+<!-- END Pixlee analytics - product add-to-bag and view -->
+
+<!-- Prabhu's fb code for pdp sop 10/16/17 -->
+<script type="text/javascript">
+  // Facebook like button
+  if( location.pathname == '/browse/product.do' && navigator.userAgent.indexOf("MSIE 8") == -1 && navigator.userAgent.indexOf("MSIE 9") == -1 ) {
+    var fbProductPageLikeButton = {
+      initialize: function() { },
+      model: {
+        searchDexPageStructure: 'http%3A%2F%2Foldnavy.gap.com%2Fproducts%2F'
+      },
+      controller: {
+        init: function() {
+          var model = fbProductPageLikeButton.model;
+          if (jQuery('.social-links').length !== 0 && jQuery('.fbLikeBtn').length == 0) {
+            /* Revised SearchDex URL implemented 06/28 */
+          
+            var searchDexProdName = gap.pageProductData.name;
+            searchDexProdName = searchDexProdName.replace(/\s+/g, '-').toLowerCase();
+            var searchDexStyleId = gap.pageProductData.styleId;
+            var productName = escape(searchDexProdName + '-P' + searchDexStyleId + '.jsp?tid=atsm000000');
+
+            jQuery('.social-links').append('<div class="fbLikeBtn"><iframe src="https://www.facebook.com/plugins/like.php?href=' + model.searchDexPageStructure + productName + '&send=false&layout=button_count&width=100&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px" allowTransparency="true"></iframe></div>');
+
+          }
+        }
+      }
+    }
+
+    jQuery(document).ready(function(){
+      if (gap.sop) {
+      // Wait for product data to be loaded and then initialize module
+		if(gap.pageProductData){	   
+			if (jQuery('body').hasClass('onesiteProdPage')) {
+				fbProductPageLikeButton.controller.init();
+			}
+		}
+      } else {
+      // if we get here, we're on ECOM and should initialize the module immediately
+      if (jQuery('body').hasClass('onesiteProdPage')) {
+
+        fbProductPageLikeButton.controller.init();
+      }
+      }
+    });
+  }
+</script>
+<!-- end Prabhu's fb code for pdp sop-->
+
+<!-- Prabhu's "pin it" code for pdp sop 10/16/17-->
+<script type="text/javascript">
+  if( location.pathname == "/browse/product.do" && navigator.userAgent.indexOf("MSIE 8") == -1 && navigator.userAgent.indexOf("MSIE 9") == -1  ) {  
+    
+    var wcdPinItButtonInsert = {
+      version: '2.0',
+      pinItStr: '',
+      pinItDiv: '',
+      pinDesc: '',
+      pinMedia: '',
+      pinURL: '',
+      pinItDivStr: '',
+      pinItProductID: '',
+      pinItProductIDImgPath:'',
+      
+      
+      insert_pinIt_Btn : function() {
+        if( jQuery('.fbLikeBtn').length > 0 && jQuery('.pinItBtn').length == 0 ) {
+          // Onesite Segment B Styles
+         /* if (jQuery('body').hasClass('onesiteProdPage')) {
+            jQuery("#fb_like").css({ "margin-left" : "5px", "overflow" : " hidden", "width" : "100px", "margin-top" : "-24px"});
+          } else {
+            jQuery("#fb_like").css({ "margin-left" : "45px", "overflow" : " hidden", "width" : "200px", "margin-top" : "-22px"});
+          }
+		*/
+          wcdPinItButtonInsert.pinURL = encodeURIComponent(window.location.href);
+          
+          if (window["ko"] !== undefined && ko.postbox && ko.postbox.topicCache) {
+            var currentImagePath = ko.postbox.topicCache["buyBox-selectedColor"].value.largeImagePath;
+            //Set Path for the Image To Pin
+            wcdPinItButtonInsert.pinItProductIDImgPath = "https://secure-www.gap.com" + currentImagePath;
+            wcdPinItButtonInsert.pinMedia = encodeURIComponent( wcdPinItButtonInsert.pinItProductIDImgPath);
+          }
+    
+          if( gap.pageProductData !== undefined ) {
+            wcdPinItButtonInsert.pinDesc = gap.pageProductData.name;
+          }
+
+          wcdPinItButtonInsert.pinDesc = encodeURIComponent(wcdPinItButtonInsert.pinDesc);
+          wcdPinItButtonInsert.pinDesc = wcdPinItButtonInsert.pinDesc.replace("'","");
+          
+          wcdPinItButtonInsert.pinItStr = 'https://pinterest.com/pin/create/button/?url=' + wcdPinItButtonInsert.pinURL + '&media=' + wcdPinItButtonInsert.pinMedia + '&description=' + wcdPinItButtonInsert.pinDesc;
+        
+          jQuery('.fbLikeBtn').after('<div class="pinItBtn"><img src="/Asset_Archive/ONWeb/content/0012/443/888/assets/builder_pinit.png" /></div>');
+          
+          // fires on color swatch rollover and rollout
+          ko.postbox.subscribe('buyBox-selectedColor', function(data){
+            var productColorImage = ko.postbox.topicCache['buyBox-selectedColor'].value.largeImagePath;
+            wcdPinItButtonInsert.updatePinIt(productColorImage);
+          });
+
+          jQuery('.pinItBtn').on('click', function(e) { 
+            wcdPinItButtonInsert.pinItTracking();
+            wcdPinItButtonInsert.sendPin();
+          });
+        } 
+      },
+
+      sendPin: function() {
+        window.open(wcdPinItButtonInsert.pinItStr, 'pinIt', 'toolbar=0,status=0,width=620,height=500');
+      },
+      
+      updatePinIt : function(productColorImage) {
+        
+        wcdPinItButtonInsert.pinItStr = 'https://pinterest.com/pin/create/button/?url=' + wcdPinItButtonInsert.pinURL + '&media=https%3A%2F%2Fsecure-oldnavy.gap.com' +productColorImage + '&description=' + wcdPinItButtonInsert.pinDesc;
+        
+        jQuery('.pinItBtn').off('click');
+        jQuery('.pinItBtn').on('click', function(e) { 
+          wcdPinItButtonInsert.pinItTracking();
+          wcdPinItButtonInsert.sendPin();
+        });
+      },
+
+      pinItTracking: function() {
+        var currentTracking = 'GOLPin';
+        if( location.hostname.indexOf('bananarepublic') > -1 ) { currentTracking = 'BROLPin'; }
+        else if( location.hostname.indexOf('oldnavy') > -1 ) { currentTracking = 'ONOLPin'; }
+        else if( location.hostname.indexOf('athleta') > -1 ) { currentTracking = 'ATOLPin'; }
+
+        //wcd_addTracking(currentTracking,'');
+        wcdLib.trackValue( this, currentTracking, currentTracking, 'eVar6' );
+        return true;
+      }
+    }
+
+    jQuery(document).ready(function(){
+      if (gap.sop) {
+      // Wait for product data to be loaded and then initialize module
+		if(gap.pageProductData){   
+			if (jQuery('body').hasClass('onesiteProdPage')) {
+				wcdPinItButtonInsert.insert_pinIt_Btn();
+			}
+		}
+      } else {
+      // if we get here, we're on ECOM and should initialize the module immediately
+      wcdPinItButtonInsert.insert_pinIt_Btn();
+      }
+    });
+  }
+  // Out-of-stock page redirect code
+  var closedURL = document.location.href;
+  // check to see if on store closed page
+  if( closedURL.indexOf('store-closed') > -1 || closedURL.indexOf('OutOfStockNoResults') > -1 ) {
+    var pinRef = document.referrer;
+    // check to see if referred from Pinterest
+    if( pinRef.indexOf('pinterest.com') > -1 ) {
+      // if so, redirect to brand homepage
+      var newURL = 'http://' + document.location.host;
+      window.location = newURL;
+    }
+  }
+  
+</script>
+<!-- end Prabhu's "pin it" code for pdp sop-->
+
+
+
+<!-- 9/20 Tealium InlineBagAdd Patch TEAL-184-->
+<script type="text/javascript">
+var oldViewWith = PageDataLayer.viewWith;
+PageDataLayer.viewWith = function(builders) {
+  if (builders && builders.length && builders[0].name === 'inline-bag-add') {
+    builders.push({
+      name: 'inlineadd-mod',
+      data: {
+        page_type: 'InlineBagAdd'
+      }
+    });
+  }
+  return oldViewWith(builders);
+};
+</script>
+
+
+<!--11/11/2017 : INC2169602 - when product data comes undefined  -->
+<script type="text/javascript">
+
+if( location.pathname == '/browse/product.do') {
+  if(gap.sop) {
+    if(window.gap.pageProductData === undefined || jQuery(".swatches--loading-swatch").length > 0) {
+    var domain = (/gidapps/.test(location.hostname)) ? '.gidapps.com' : '.gap.com';
+    gidLib.setCookie('ABSeg','*NMB*%7B%22PDP%22%3A%22ECOM%22%7D*NMB*','','/',domain);
+       
+    window.location.reload(true);
+    }
+  }
+}
+
+if( location.pathname == '/browse/product.do'){
+  if(window.gap.pageProductData === undefined) {
+    document.cookie = 'ABSeg=*NMB*%7B%22PDP%22%3A%22ECOM%22%7D*NMB*;domain=.gap.com;path=/';
+    window.location.reload(true);
+  }
+}
+
+</script>
+
+<!--11/11/2017 : INC2169602 - when product data comes undefined  -->
+
+<!-- END WCD Product Page code -->
+
+</div><!-- END: /0014/436/055/cn14436055.html -->
+<!-- END - WCD Sitewide Container 3 -->
+
+<!-- END: /0012/444/389/cn12444389.html -->

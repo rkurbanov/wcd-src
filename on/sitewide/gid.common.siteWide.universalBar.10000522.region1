@@ -1,0 +1,145 @@
+<!-- BEGIN: /0012/639/034/cn12639034.html --><!-- @TemplateContentLayout(templateRegionName:"gid.common.siteWide.universalBar.10000522.region1") -->
+
+<!-- BEGIN: /0014/233/030/cn14233030.html --><div id="contentItemContainer10000425" class="14233030"><!-- EDFS - ON US -->
+<style>
+
+.wcd_edfs,
+.wcd_edfs .edfs-msg {
+	height: 40px;
+}
+.wcd_edfs {
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	cursor: pointer;
+}
+.wcd_edfs .edfs-headline {
+	font-size: 12px;
+	line-height: 1.1;
+	color: #666;
+	text-transform: uppercase;
+}
+.wcd_edfs .edfs-details {
+	font-size: 10px;
+	color: #999;
+	text-decoration: underline;
+	text-transform: lowercase;
+}
+
+.wcd_edfs .edfs-headline {
+	display: table-cell;
+	vertical-align: middle;
+	height: 26px;
+}
+
+.wcd_edfs .edfs-msg {
+	position: absolute;
+	display: table;
+	box-sizing: border-box;
+	padding: 0 .5rem;
+	width: 100%;
+/* Animation -- SWITCHED OFF
+	-webkit-animation: showhide 12s infinite;
+	animation: showhide 12s infinite;
+	*/
+}
+
+/* Animation -- SWITCHED OFF
+.wcd_edfs .edfs-msg-2 {	
+	-webkit-animation-delay: 4s;
+	animation-delay: 4s;
+	visibility: hidden;
+}
+.wcd_edfs .edfs-msg-3 {	
+	-webkit-animation-delay: 8s;
+	animation-delay: 8s;
+	visibility: hidden;
+}
+
+@-webkit-keyframes showhide {
+	0% {
+		visibility: visible;
+	}
+	33% {
+		visibility: hidden;
+	}
+	66% {
+		visibility: hidden;
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+
+@keyframes showhide {
+	0% {
+		visibility: visible;
+	}
+	33% {
+		visibility: hidden;
+	}
+	66% {
+		visibility: hidden;
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+*/
+
+@media only screen and (min-width: 768px) {
+	.wcd_edfs .edfs-headline {
+		color: #fff;
+	}
+	.wcd_edfs .edfs-details {
+		color: #f2f2f2;
+		text-transform: uppercase;
+		margin-left: 3px;
+	}
+
+	/* Center the EDFS Message w/ Brand logo */
+	.wcd_edfs .edfs-msg {
+		/* At Lg BP, the left element is 139px, and the right side is 200px (by default) */
+		padding-left: 69px;	/* 61px + normal padding */
+	}
+
+}
+@media only screen and (min-width: 1024px) {
+	/* Center the EDFS Message w/ Brand logo */
+	.wcd_edfs .edfs-msg {
+		/* At XL BP, the left element is 415px, and the right side is 200px (by default) */
+		padding-left: 0;
+		padding-right: 215px;
+	}
+	.wcd_edfs .edfs-headline {
+		font-size: 10px;	/* Reduce font size to keep text inside EDFS container while centered */
+	}
+}
+
+</style>
+
+
+<div class="wcd_edfs toggle-universal-modal" data-url="http://www.gap.com/Asset_Archive/GPWeb/content/static-marketing/xbrand-edfs-content/edfsLegal-ON-Narvar.html?v=3">
+
+	<div class="edfs-msg-1 edfs-msg">
+		<div class="edfs-headline"><strong>Free Shipping</strong> on Orders of $50 or more <span class="edfs-details">Details</span></div>
+	</div>
+
+	<!--div class="edfs-msg-2 edfs-msg">
+		<div class="edfs-headline"><strong>FREE Returns</strong> on All Orders <span class="edfs-details">Details</span></div>
+	</div>
+
+	<div class="edfs-msg-3 edfs-msg">
+		<div class="edfs-headline">4 Brands, One Easy Checkout <span class="edfs-details">Details</span></div>
+	</div-->
+
+</div><!-- /.wcd_edfs -->
+</div><!-- END: /0014/233/030/cn14233030.html -->
+
+
+<!--  new onesite template sub-regions -->
+
+<!-- END: /0012/639/034/cn12639034.html -->

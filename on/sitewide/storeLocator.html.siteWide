@@ -1,0 +1,138 @@
+<!-- BEGIN: /0012/444/389/cn12444389.html --><!-- @TemplateContentLayout(templateRegionName:"storeLocator.html.siteWide") -->
+
+<!-- BEGIN - WCD Sitewide Container 5 - Store Locator -->
+<!-- BEGIN: /0013/203/399/cn13203399.html --><div id="contentItemContainer10000613" class="13203399">
+<!-- BEGIN WCD Store Locator code -->
+
+<!--
+  1. Hide Mat filter
+	2. Locator Outlet preselect
+	3. Locator fix on preview
+	4. Locator pre-fix/hide unnecessary header/footer
+	5. Locator change page title
+-->
+
+<!-- BEGIN Hide Mat filter -->
+<script type="text/javascript">
+if( location.pathname == '/customerService/storeLocator.do' ) {
+
+jQuery( document ).on('filterTools:ready', function() {
+	jQuery("#filter_maternity, label[for='filter_maternity']").hide();
+});
+
+}
+</script>
+<!-- END Hide Mat filter -->
+
+<!-- BEGIN ON Store Locator override to pre-select Outlets Aug 2013 Start -->
+<script type="text/javascript">
+if( location.pathname == '/customerService/storeLocator.do' ) {
+
+(function( $ ) {
+	var wcdStoreLocatorUpdater = {
+		preselectOutlet: function() {
+			$('#filter_outlet').prop('checked', true);
+		},
+		presetOutletCookie : function() {
+			if( storeLocatorManager.controller.setBrandCookieVar ) {
+				storeLocatorManager.controller.setBrandCookieVar( storeLocatorManager.constants.cookies.FILTERS, "Outlet" );
+			}
+		}
+	}
+
+	// Observe building of tools/filter area of map
+	$( document ).on('filterTools:ready', function() {
+		var isOutletPreselect = gidLib.getQuerystringParam('showOutlets');
+		if( isOutletPreselect == 'true' ) { wcdStoreLocatorUpdater.preselectOutlet(); }
+	});
+
+	if( storeLocatorManager && storeLocatorManager.controller && storeLocatorManager.controller.eventHandlers && storeLocatorManager.controller.eventHandlers.personalizationDataReadyHandler ) {
+		storeLocatorManager.controller.eventHandlers.personalizationDataReadyHandler = storeLocatorManager.controller.eventHandlers.personalizationDataReadyHandler.wrap( function( om ) {
+			var isOutletPreselect = gidLib.getQuerystringParam('showOutlets');
+			if( isOutletPreselect == 'true' ) { wcdStoreLocatorUpdater.presetOutletCookie(); }
+
+			om();
+		});
+	}
+})( jQuery );
+
+}
+</script>
+<!-- END ON Store Locator override to pre-select Outlets Aug 2013 End -->
+
+<!-- BEGIN Locator fix on preview -->
+<script type="text/javascript">
+if( location.hostname.indexOf('.gidapps.') > -1 ) {
+	if( window["storeLocatorListService"] != null && storeLocatorListService.controller && storeLocatorListService.controller.getPostalCodeFromPersonalizationServiceModel ) {
+		storeLocatorListService.controller.getPostalCodeFromPersonalizationServiceModel = function() {
+			if (storeLocatorListService.model.postalCode) {
+				return storeLocatorListService.model.postalCode;
+			}
+
+			var howToLocate = "10007";
+			var akamaiLocation = personalizationService.model.personalizationData.personalizationInfoV1.marketingMessageInfo.geoLocation;
+			if( location.hostname.indexOf('gidapps.com') > -1 ) {
+				akamaiLocation = null;
+			}
+
+			var cookieLocation = gidLib.getCookieVar("globalSession", "pcode");
+			if (cookieLocation) {
+				howToLocate = cookieLocation;
+			}
+			/* Use lat/long from google */
+			else if (storeLocatorListService.model.latitude && storeLocatorListService.model.longitude) {
+				howToLocate = storeLocatorListService.constants.requestParameters.GEO_PARAMETER;
+			}
+			else if (akamaiLocation) {
+				howToLocate = storeLocatorListService.constants.requestParameters.GEO_PARAMETER;
+				storeLocatorListService.model.latitude = akamaiLocation.match(/lat=([0-9\.-]+)/)[1];
+				storeLocatorListService.model.longitude = akamaiLocation.match(/long=([0-9\.-]+)/)[1];
+			}
+
+			storeLocatorListService.model.postalCode = howToLocate;
+			return howToLocate;
+		}
+	}
+}
+</script>
+<!-- END Locator fix on preview -->
+
+
+<!-- Begin prefix/ hiding unnecessary header/footer -->
+
+<style>
+
+.portableStoreLocator{background-image:none;}
+.portableStoreLocator #stamp{display:none;}
+.portableStoreLocator #universalBar{display:none;}
+.portableStoreLocator #topNav{display:none;}
+.portableStoreLocator #backgroundColorBar{display:none;}
+.portableStoreLocator #footer{display:none;}
+.portableStoreLocator .onesite{display:none;}
+.portableStoreLocator .brand-bar-with-contents.header--wrapper{display:none;}
+
+</style>
+
+
+<script type="text/javascript">
+	if( (location.pathname == '/customerService/storeLocator.do') && (location.search.indexOf("portableStoreLocator=true") > -1)){
+		 document.body.className += " portableStoreLocator";  
+	}
+</script>
+
+<!-- END prefix/ hiding unnecessay header/footer -->
+
+<!-- Change page title -->
+<script type="text/javascript">
+	if( location.pathname == '/customerService/storeLocator.do'){
+		jQuery('title').text('Store Locator | Old Navy');
+	}
+</script>
+
+<!-- End change page title -->
+
+<!-- END WCD Store Locator code -->
+</div><!-- END: /0013/203/399/cn13203399.html -->
+<!-- END - WCD Sitewide Container 5 -->
+
+<!-- END: /0012/444/389/cn12444389.html -->

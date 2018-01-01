@@ -1,0 +1,112 @@
+<!-- BEGIN: /0014/611/049/cn14611049.html --><!-- @TemplateContentLayout(templateRegionName:"sitewide.distruptor") -->
+<!-- Division Navigation 1 (10000395) - above the brand bar -->
+<!-- BEGIN: /0014/594/994/cn14594994.html --><div id="contentItemContainer10000395" class="14594994"><style type='text/css'>
+.mkt_mod-promo-banner{ display: none; }
+  .mkt_mod-promo-banner > div.mkt_container > span { font-family: "FranklinGothic","Open Sans",Helvetica Neue,Helvetica,Arial,Roboto,sans-serif; font-weight:400; letter-spacing: .1px;}
+  .mkt_mod-promo-banner > div.mkt_container span.mkt_promoCode{display:inline-block; font-weight: 600;
+}
+
+/*text fade*/
+@keyframes mkt_textFade{
+  0% { opacity:1;pointer-events:auto;}
+  45% { opacity:1;pointer-events:auto;}
+  55% { opacity:0; pointer-events:none;}
+  100% { opacity:0; pointer-events:none;}
+}
+
+@media(max-width: 375px){
+    .mkt_mod-promo-banner .sds_nowrap{ white-space: normal; }
+}
+
+@media(max-width: 767px){
+  .mkt_mod-promo-banner{ padding:1em; }
+  .mkt_mod-promo-banner > div.mkt_container span { display:block; line-height: 1.2em;}
+  .mkt_mod-promo-banner > div.mkt_container > span.mkt_underline{ text-decoration: underline; }
+}
+@media(min-width:768px){
+  .mkt_mod-promo-banner { background-color: #003764; color: #fff;  }
+  .mkt_mod-promo-banner div.mkt_container{ 
+    width:100%; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around; 
+    align-items: center; 
+  }
+  .mkt_mod-promo-banner > div.mkt_container > span { padding: 15px 12px 14px; letter-spacing: 1px;}
+
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--12,
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--14,
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--15{ font-size: 13px; }
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--14.sds_color--s4{ color:#fff; }
+  .mkt_mod-promo-banner > div.mkt_container > span > span {display: block;}
+
+  .mkt_mod-promo-banner > div.mkt_container > span > span.mkt_textFade{
+    width:100%;
+    height:100%;
+    background-color: #003764;
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    animation-name: mkt_textFade;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-direction: alternate;
+  }
+}
+@media(min-width: 1024px){
+  .mkt_mod-promo-banner > div.mkt_container > span { padding: 15px 15px 14px; }
+}
+
+.moduleWrapper .mkt_mod-promo-banner{
+  display:block;
+}
+</style>
+
+
+<div class="mkt_mod-promo-banner sds_font-size--13 sds_tx_center sds_uppercase sds_grid-root">
+  <div class="mkt_container sds_g-1-1">
+      <span class="sds_font-size--12">ONLINE EXCLUSIVE</span>
+      <span class="sds_font-size--15 sds_relative animation-container" >
+        <span class="sds_nowrap">EXTRA 20% OFF EVERYTHING</span>
+        <!-- <span class="mkt_textFade sds_nowrap"></span> -->
+      </span>
+      <span class="sds_font-size--14 sds_color--s4">DISCOUNT APPLIED AT CHECKOUT<span class="mkt_promoCode"></span></span>
+      <span class="sds_nowrap">TODAY ONLY</span>
+      <span class="mkt_underline"><a onclick="return disruptorManager.showPromoLegalPopup('/buy/promo_legal_details.do?promoId=385513');">DETAILS</a></span>
+  </div>
+</div>
+
+<script>
+var disruptorManager = {
+  showPromoLegalPopup : function(u){
+    wcdLib.trackValue(this,'promo_legal','promo_legal','eVar7');
+    gap.UniversalModal.publishModal({
+      modalSize: 'standard',
+      actionSheet: 'small',
+      url: u
+    });
+    return false;
+  }
+};
+
+if(location.pathname.indexOf("/buy/shopping_bag.do")>=0){
+  jQuery(".mkt_mod-promo-banner").css('display','block');
+}
+
+</script></div><!-- END: /0014/594/994/cn14594994.html -->
+<!-- sticker -->
+<!-- @Container(containerId:"10000390",isBodyContainer:"true") -->
+
+<!-- END: /0014/611/049/cn14611049.html -->

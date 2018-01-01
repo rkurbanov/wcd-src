@@ -1,0 +1,1240 @@
+<!-- BEGIN: /0012/639/034/cn12639034.html --><!-- @TemplateContentLayout(templateRegionName:"edfs.html.responsive") -->
+<!-- BEGIN: /0014/233/030/cn14233030.html --><div id="contentItemContainer10000425" class="14233030"><!-- EDFS - ON US -->
+<style>
+
+.wcd_edfs,
+.wcd_edfs .edfs-msg {
+	height: 40px;
+}
+.wcd_edfs {
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	cursor: pointer;
+}
+.wcd_edfs .edfs-headline {
+	font-size: 12px;
+	line-height: 1.1;
+	color: #666;
+	text-transform: uppercase;
+}
+.wcd_edfs .edfs-details {
+	font-size: 10px;
+	color: #999;
+	text-decoration: underline;
+	text-transform: lowercase;
+}
+
+.wcd_edfs .edfs-headline {
+	display: table-cell;
+	vertical-align: middle;
+	height: 26px;
+}
+
+.wcd_edfs .edfs-msg {
+	position: absolute;
+	display: table;
+	box-sizing: border-box;
+	padding: 0 .5rem;
+	width: 100%;
+/* Animation -- SWITCHED OFF
+	-webkit-animation: showhide 12s infinite;
+	animation: showhide 12s infinite;
+	*/
+}
+
+/* Animation -- SWITCHED OFF
+.wcd_edfs .edfs-msg-2 {	
+	-webkit-animation-delay: 4s;
+	animation-delay: 4s;
+	visibility: hidden;
+}
+.wcd_edfs .edfs-msg-3 {	
+	-webkit-animation-delay: 8s;
+	animation-delay: 8s;
+	visibility: hidden;
+}
+
+@-webkit-keyframes showhide {
+	0% {
+		visibility: visible;
+	}
+	33% {
+		visibility: hidden;
+	}
+	66% {
+		visibility: hidden;
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+
+@keyframes showhide {
+	0% {
+		visibility: visible;
+	}
+	33% {
+		visibility: hidden;
+	}
+	66% {
+		visibility: hidden;
+	}
+	100% {
+		visibility: hidden;
+	}
+}
+*/
+
+@media only screen and (min-width: 768px) {
+	.wcd_edfs .edfs-headline {
+		color: #fff;
+	}
+	.wcd_edfs .edfs-details {
+		color: #f2f2f2;
+		text-transform: uppercase;
+		margin-left: 3px;
+	}
+
+	/* Center the EDFS Message w/ Brand logo */
+	.wcd_edfs .edfs-msg {
+		/* At Lg BP, the left element is 139px, and the right side is 200px (by default) */
+		padding-left: 69px;	/* 61px + normal padding */
+	}
+
+}
+@media only screen and (min-width: 1024px) {
+	/* Center the EDFS Message w/ Brand logo */
+	.wcd_edfs .edfs-msg {
+		/* At XL BP, the left element is 415px, and the right side is 200px (by default) */
+		padding-left: 0;
+		padding-right: 215px;
+	}
+	.wcd_edfs .edfs-headline {
+		font-size: 10px;	/* Reduce font size to keep text inside EDFS container while centered */
+	}
+}
+
+</style>
+
+
+<div class="wcd_edfs toggle-universal-modal" data-url="http://www.gap.com/Asset_Archive/GPWeb/content/static-marketing/xbrand-edfs-content/edfsLegal-ON-Narvar.html?v=3">
+
+	<div class="edfs-msg-1 edfs-msg">
+		<div class="edfs-headline"><strong>Free Shipping</strong> on Orders of $50 or more <span class="edfs-details">Details</span></div>
+	</div>
+
+	<!--div class="edfs-msg-2 edfs-msg">
+		<div class="edfs-headline"><strong>FREE Returns</strong> on All Orders <span class="edfs-details">Details</span></div>
+	</div>
+
+	<div class="edfs-msg-3 edfs-msg">
+		<div class="edfs-headline">4 Brands, One Easy Checkout <span class="edfs-details">Details</span></div>
+	</div-->
+
+</div><!-- /.wcd_edfs -->
+</div><!-- END: /0014/233/030/cn14233030.html -->
+<!-- BEGIN: /0014/679/669/cn14679669.html --><div id="contentItemContainer10000424" class="14679669">
+<!-- BEGIN Certona -->
+<style type="text/css">
+.certona__olapic-wrapper,.certona__recs-wrapper{width:100%;float:left;margin:20px 0}.certona__recs-wrapper.onhome1_rr{float:none;margin:0}.certona__recs-wrapper img{max-width:100%;width:100%}.certonaShopBag{background-color:#fff;padding:0 0 .5em .5em}.certona__hp-title{width:100%;text-align:center;font-size:2.2em;color:#000;margin:.3em 0;font-weight:700;position:relative}.onhome1_rr .certona__hp-title{text-align:left}.certona__hp-title-text{background-color:#fff;z-index:2;position:relative;padding:0 20px;letter-spacing:.15em}.onhome1_rr .certona__hp-title-text{text-transform:uppercase;letter-spacing:.8px;font-family:FranklinGothic,"Open Sans",Helvetica Neue,Helvetica,Arial,Roboto,sans-serif;font-weight:700;text-decoration:none;color:#003764}.certona__hp-title-line{width:100%;height:1px;background-color:#666;position:absolute;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%)}.certona__recs-wrapper.mobile .certona__hp-title-line{top:25%;height:20px;display:block}.certona__recs-grid.grid-root{display:block;white-space:nowrap;position:relative}.certona-inSitu hr,.certona__recs-slide::scrollbar{display:none}.certona__recs-wrapper.oncart1_rr.desktop .certona__recs-grid,.certona__recs-wrapper.onhome1_rr .certona__recs-grid{padding:0 30px}.certona__recs-wrapper.onhome1_rr.mobile .certona__recs-grid,.certona__right-rail .certona__recs-grid{padding:0}.certona__recs-wrapper.oncategory1_rr.desktop .certona__recs-grid,.certona__recs-wrapper.onproduct1_rr.desktop .certona__recs-grid,.certona__recs-wrapper.onproduct2_rr.desktop .certona__recs-grid,.certona__recs-wrapper.onxproduct1_rr.desktop .certona__recs-grid{padding:0 30px}.certona__product-card__inner{padding:.5em}.certona__recs-slide{overflow-x:auto;-webkit-overflow-scrolling:touch;-moz-overflow-scrolling:touch;overflow-scrolling:touch;overflow:-moz-scrollbars-none}.certona__recs-slide::-webkit-scrollbar{display:none}.certona__right-rail .certona__recs-slide{white-space:normal}.certona__product-card__text{color:#666;font-size:100%;font-weight:400;text-transform:none;padding-top:.4em;white-space:normal}.certona__recs-wrapper.onhome1_rr .certona__product-card__text{text-align:center}.certona__recs-wrapper.onhome1_rr.mobile .certona__product-card__text{text-align:left}.certona-arrow{width:20px;position:absolute;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);cursor:pointer}.certona-arrow img{width:20px}.certona-arrow.right img{transform:rotate(180deg);-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg)}.certona-arrow.left{left:3px;opacity:.3}.certona-arrow.right{right:3px}.certona-inSitu{padding-bottom:.8em}.certona-inSitu hr.certona{display:block;width:100%;margin:.75em 0;color:#c9c9c9;height:1px}.onaddtocart1_rr .certona__recs-grid{padding:0 .5em}.certona__right-rail{width:14%;display:inline-block;min-height:50px;border-left:1px solid #dfdfdf;vertical-align:top;padding-left:10px;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}.ruled--header-width{width:30%}.ruled--header--logoimg{vertical-align:bottom;padding-bottom:0;height:26px}.certona__product-card__logoimg{width:30px;position:absolute;bottom:7px;left:.3rem}.crossBrdRelative,.universalSectionContainer .limit-width{position:relative}.certona__recs-wrapper.onorderconf1_rr{margin-top:0!important}.onorderconf1_rr .certona__hp-title{font-size:2em!important;text-align:left}.onorderconf1_rr .certona__hp-title-text{letter-spacing:0!important;padding-left:6px}@media (max-width:767px){.certona__recs-wrapper.onorderconf1_rr{text-align:center;margin:20px auto!important}.onorderconf1_rr .certona__hp-title{font-size:1.5em!important;text-align:center}.onorderconf1_rr .certona__hp-title-text{padding:0}}.onorderconf1_rr .certona__recs-grid.grid-root{white-space:normal;display:flex;flex-flow:row wrap}.onorderconf1_rr .certona__recs-grid .certona__product-card__anchor{text-decoration:none}.onorderconf1_rr .certona__product-card__text{font-size:120%}.onorderconf1_rr .certona-arrow{display:none}.onorderconf1_rr .certona__product-card{margin-top:1em;margin-bottom:1em}.onorderconf1_rr .certona__product-card .product-card-price--strike{text-decoration:line-through!important}.onorderconf1_rr .certona__product-card .product-card-price--highlight{color:#d00000!important}.universalSectionContainer .limit-width .optlyBlkWrap{display:inline-block;float:left;top:0;width:40%}.universalSectionContainer .optlyCertonaBlkWrap{float:right;top:0;right:0;width:54%}#homeVariant10000461_region1{clear:both}@media (max-width:1024px) and (min-width:768px){.certona__recs-wrapper.onhome1_rr .certona__hp-title{font-size:1.5em!important}}@media (max-width:767px){.certona__recs-wrapper.onhome1_rr .certona__hp-title{width:85%;margin:0 auto;text-align:center;font-size:2.4rem!important}.onhome1_rr .certona__hp-title-text{padding:0;margin:0}.certona__recs-wrapper.onaddtocart1_rr{margin-bottom:5px}.certona__recs-wrapper.onaddtocart1_rr .certona__product-card__text{display:none}}
+</style>
+
+<script type="text/javascript">
+if (gidLib.getCookieVar('mktGlobalSession','certonaCheckout')!="") {
+	gidLib.removeCookieVar('mktGlobalSession','certonaCheckout','');
+}
+// marketing container loaded flags
+var mktC1_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c1:loaded", function() { mktC1_loaded = true; });
+var mktOptly1_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly1:loaded", function() { mktOptly1_loaded = true; });
+var mktC2_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c2:loaded", function() { mktC2_loaded = true; });
+var mktOptly2_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly2:loaded", function() { mktOptly2_loaded = true; });
+var mktC3_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c3:loaded", function() { mktC3_loaded = true; });
+var mktOptly3_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly3:loaded", function() { mktOptly3_loaded = true; });
+var mktC4_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c4:loaded", function() { mktC4_loaded = true; });
+var mktOptly4_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly4:loaded", function() { mktOptly4_loaded = true; });
+var mktC5_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c5:loaded", function() { mktC5_loaded = true; });
+var mktOptly5_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly5:loaded", function() { mktOptly5_loaded = true; });
+var mktC6_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c6:loaded", function() { mktC6_loaded = true; });
+var mktOptly6_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly6:loaded", function() { mktOptly6_loaded = true; });
+var mktC7_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c7:loaded", function() { mktC7_loaded = true; });
+var mktOptly7_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly7:loaded", function() { mktOptly7_loaded = true; });
+var mktC8_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c8:loaded", function() { mktC8_loaded = true; });
+var mktOptly8_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly8:loaded", function() { mktOptly8_loaded = true; });
+var mktC9_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--c9:loaded", function() { mktC9_loaded = true; });
+var mktOptly9_loaded = false;
+jQuery( document ).on("container--mkt_reg-hp--optly9:loaded", function() { mktOptly9_loaded = true; });
+//declare certona tracking object
+
+var debugCert = false; if(location.href.indexOf("debugCert") > -1){debugCert = true};
+
+var certona = {};
+var CertonaInjectionManager = {
+	gapproduct1_rr : false,
+	gapproduct2_rr : false,
+	gapaddtocart1_rr : false,
+	gapcart1_rr : false,
+	gaphome1_rr : false,
+	onproduct1_rr : false,
+	onaddtocart1_rr : false,
+	oncart1_rr : false,
+	onhome1_rr : false,
+	oncategory1_rr : false,
+	onorderconf1_rr : false,
+	onxproduct1_rr : false
+};
+var CertonaSchemas = {
+	gpproduct : ["gapproduct1_rr", "gapproduct2_rr", "gapaddtocart1_rr"],
+	gphome : ["gaphome1_rr"],
+	gpcart : ["gapcart1_rr"],
+	atproduct : ["atproduct1_rr", "atproduct2_rr","ataddtocart1_rr"],
+	atcart : ["atcart1_rr"],
+	athome : ["athome1_rr"],
+	brhome : ["brhome1_rr"],
+	brproduct : ["brproduct1_rr","brproduct2_rr","braddtocart1_rr"],
+	brcart : ["brcart1_rr"],
+	onproduct : ["onproduct1_rr", "onproduct2_rr", "onaddtocart1_rr", "onxproduct1_rr"],
+	oncart : ["oncart1_rr"],
+	onhome : ["onhome1_rr"],
+	oncategory : ["oncategory1_rr"]
+};
+var CertonaSchemasWidgetTitles = {
+	gapproduct1_rr : "Similar Styles",
+	gapproduct2_rr : "Just For You",
+	gapaddtocart1_rr : "Just For You",
+	gapcart1_rr : "Based on Your Purchase",
+	gaphome1_rr : "HP_Recommended",
+	olhome1_rr : "HP_Recommended",
+	olcart1_rr : "Based on Your Purchase",
+	olproduct1_rr : "Similar Styles",
+	oladdtocart1_rr : "Just For You"
+};
+var itemsBrandRo = {
+	1 : "GAP",
+	3 : "ON",
+	2 : "BR",
+	10 : "AT"
+};
+/**********************************
+ UTILITY METHOS
+ *********************************/
+var getNestedObject = function(obj, key) {
+	return key.split(".").reduce(function(o, x) {
+		return (typeof o == "undefined" || o === null) ? o : o[x];
+	}, obj);
+}
+var stripImgUrlHost = function(imageURL){
+	if('undefined' !== typeof imageURL){
+		return imageURL.replace(/^[^#]*?:\/\/.*?(\/.*)$/, '$1');
+	}
+};
+/*************************
+CREATES HP WIDGET
+*************************/
+var segShow = '';
+var CertonaHPWidget = function(response,scheme) {
+	this.response = response;
+	this.scheme = scheme;
+	this.schemeItems = CertonaProductRecWidget.prototype.parseCertonaResponse.call(this);
+	this.trackId = scheme;
+	this.isMobile = (jQuery(window).width()<768) ? true : false;
+	//this.widgetTitle = (this.isMobile) ? "Recommended&nbsp;&nbsp;<br />For You" : "Recommended For You";
+	this.widgetTitle = (this.isMobile) ? "Recommended For You" : "Recommended For You";
+	this.arrowSrc = "/Asset_Archive/ONWeb/content/0014/312/187/assets/020416_US_DenimWovenSweaters_site_hp_v2_arrowL.png";
+	this.constructProductCardHtml = CertonaProductRecWidget.prototype.constructProductCardHtml.bind(this);
+	this.ProductCardConstructor = CertonaProductRecWidget.prototype.ProductCardConstructor;
+	this.returnProductCardHtml = CertonaProductRecWidget.prototype.returnProductCardHtml;
+	this.insertNavArrows = CertonaProductRecWidget.prototype.insertNavArrows.bind(this);
+	this.addScrollArrowHandlers = CertonaProductRecWidget.prototype.addScrollArrowHandlers.bind(this);
+	this.injectEvent = "hpInjected";
+	this.cid = "5151";
+};
+CertonaHPWidget.prototype = {
+	constructor : CertonaHPWidget,
+	init : function() {
+		if (this.schemeItems && this.schemeItems.length>0) {
+			this.constructHtml();
+		}
+	},
+	constructHtml : function() {
+		var $this = this;
+		this.recsWrapper = jQuery("<div class='certona__recs-wrapper'></div>");
+		this.recsWrapper.append("\
+			<div class='certona__hp-title'>\
+				<span class='certona__hp-title-text'>" + this.widgetTitle + "</span>\
+			</div>\
+			<div class='certona__recs-grid grid-root'>\
+				<div class='certona__recs-slide'></div>\
+			</div>\
+		");
+		this.recsWrapper.addClass(this.scheme);
+		this.slider = this.recsWrapper.find('.certona__recs-slide');
+		this.grid = this.recsWrapper.find(".certona__recs-grid");
+		this.constructProductCardHtml();
+		this.insertNavArrows();
+		if (this.isMobile) {
+			this.recsWrapper.addClass('mobile');
+		}
+		jQuery(".mkt_reg-hp--optly5").append(this.recsWrapper);
+		jQuery(".mkt_reg-hp--optly5").append('<hr class="keyline sds_show-at-lg">');
+		if (!this.isMobile) {
+			var $this = this;
+			jQuery(document).trigger(this.injectEvent);
+		}
+		CertonaInjectionManager[this.scheme] = true;
+	}
+};
+/*************************
+CREATES SHOPPING BAG WIDGET
+*************************/
+var CertonaShopBagWidget = function(response,scheme) {
+	this.response = response;
+	this.scheme = scheme;
+	this.widgetTitle = CertonaSchemasWidgetTitles[scheme];
+	this.schemeItems = CertonaProductRecWidget.prototype.parseCertonaResponse.call(this);
+	this.trackId = this.scheme;
+	this.isMobile = (jQuery(window).width()<768) ? true : false;
+	this.arrowSrc = "/Asset_Archive/GPWeb/content/0012/501/555/assets/carat-l-black.svg";
+	this.constructProductCardHtml = CertonaProductRecWidget.prototype.constructProductCardHtml.bind(this);
+	this.ProductCardConstructor = CertonaProductRecWidget.prototype.ProductCardConstructor;
+	this.returnProductCardHtml = CertonaProductRecWidget.prototype.returnProductCardHtml;
+	this.insertNavArrows = CertonaProductRecWidget.prototype.insertNavArrows.bind(this);
+	this.addScrollArrowHandlers = CertonaProductRecWidget.prototype.addScrollArrowHandlers.bind(this);
+	this.injectEvent = "shopBagInjected";
+	this.cid = "bag";
+};
+CertonaShopBagWidget.prototype = {
+	constructor : CertonaShopBagWidget,
+	init : function() {
+		if (this.schemeItems && this.schemeItems.length>0) {
+			this.constructHtml();
+		}
+	},
+	constructHtml : function() {
+		this.recsWrapper = jQuery("<div class='certona__recs-wrapper certonaShopBag'></div>");
+		this.recsWrapper.append("\
+			<div class='savedForLaterGroup'>\
+				<div class='savedBagContainerTitle'>" + this.widgetTitle + "</div>\
+			</div>\
+			<div class='certona__recs-grid grid-root'>\
+				<div class='certona__recs-slide'></div>\
+			</div>\
+		");
+		this.recsWrapper.addClass(this.scheme);
+		if (!this.isMobile) {
+			this.recsWrapper.addClass('desktop');
+		}
+		this.slider = this.recsWrapper.find('.certona__recs-slide');
+		this.grid = this.recsWrapper.find(".certona__recs-grid");
+		this.constructProductCardHtml();
+		this.recsWrapper.find('.certona__product-card').removeClass('g-lg-1-4 g-1280-1-5').addClass('g-lg-1-3');
+		this.insertNavArrows();
+
+		CertonaInjectionManager[this.scheme] = true;
+		if (!this.isMobile) {
+			jQuery(".activeBagContainer").append(this.recsWrapper);
+			var $this = this;
+			jQuery(document).trigger(this.injectEvent);
+		}else{
+			jQuery(".savedBagBlock").before(this.recsWrapper);
+		}
+	}
+};
+/*************************
+CREATES IN-SITU WIDGET
+*************************/
+var CertonaInSituWidget = function(response,scheme) {
+	this.response = response;
+	this.scheme = scheme;
+	this.widgetTitle = CertonaSchemasWidgetTitles[scheme];
+	this.schemeItems = CertonaProductRecWidget.prototype.parseCertonaResponse.call(this);
+	this.trackId = this.scheme;
+	this.isMobile = (jQuery(window).width()<768) ? true : false;
+	this.arrowSrc = "/Asset_Archive/GPWeb/content/0012/501/555/assets/carat-l-black.svg";
+	this.constructProductCardHtml = CertonaProductRecWidget.prototype.constructProductCardHtml.bind(this);
+	this.ProductCardConstructor = CertonaProductRecWidget.prototype.ProductCardConstructor;
+	this.returnProductCardHtml = CertonaProductRecWidget.prototype.returnProductCardHtml;
+	this.injectEvent = "inSituInjected";
+	this.cid = gidLib.getQuerystringParam('cid');
+};
+CertonaInSituWidget.prototype = {
+	constructor : CertonaInSituWidget,
+	init : function() {
+		if (this.schemeItems && this.schemeItems.length>0) {
+			this.constructHtml();
+		}
+	},
+	constructHtml : function() {
+		if (!this.isMobile && this.schemeItems.length>4) {
+			this.schemeItems.splice(4,this.schemeItems.length - 4);
+		}
+		jQuery('.modal-body').addClass('certona-inSitu');
+		if (this.isMobile) {
+			jQuery('.modal-dialog').css({'max-height':'100%'});
+		}
+		this.recsWrapper = jQuery("<div class='certona__recs-wrapper'></div>");
+		this.recsWrapper.append("\
+			<h2 class='ruled--header'>\
+				<span class='ruled--header--text'>" + this.widgetTitle + "</span>\
+			</h2>\
+			<div class='certona__recs-grid grid-root'>\
+				<div class='certona__recs-slide'></div>\
+			</div>\
+			<hr class='certona' />\
+		");
+		this.recsWrapper.addClass(this.scheme);
+		this.slider = this.recsWrapper.find('.certona__recs-slide');
+		this.grid = this.recsWrapper.find('.certona__recs-grid');
+		this.constructProductCardHtml();
+		this.recsWrapper.find('.certona__product-card').removeClass('g-1280-1-5');
+		jQuery(".modal-body").after(this.recsWrapper);
+		CertonaInjectionManager[this.scheme] = true;
+	}
+};
+/*************************
+CREATES CATEGORY PAGE WIDGET(S)
+*************************/
+var CertonaCategoryWidget = function(response,scheme) {
+	this.response = response;
+	this.scheme = scheme;
+	this.widgetTitle = "Recommended For You";
+	this.schemeItems = CertonaProductRecWidget.prototype.parseCertonaResponse.call(this);
+	this.trackId = this.scheme;
+	this.isMobile = (jQuery(window).width()<768) ? true : false;
+	this.arrowSrc = "/Asset_Archive/GPWeb/content/0012/501/555/assets/carat-l-black.svg";
+	this.constructProductCardHtml = CertonaProductRecWidget.prototype.constructProductCardHtml.bind(this);
+	this.ProductCardConstructor = CertonaProductRecWidget.prototype.ProductCardConstructor;
+	this.returnProductCardHtml = CertonaProductRecWidget.prototype.returnProductCardHtml;
+	this.insertNavArrows = CertonaProductRecWidget.prototype.insertNavArrows.bind(this);
+	this.addScrollArrowHandlers = CertonaProductRecWidget.prototype.addScrollArrowHandlers.bind(this);
+	this.injectEvent = "categoryInjected";
+	this.cid = gidLib.getQuerystringParam('cid');
+};
+CertonaCategoryWidget.prototype = {
+	constructor : CertonaCategoryWidget,
+	init : function() {
+		if (this.schemeItems && this.schemeItems.length>0) {
+			this.constructHtml();
+		}
+	},
+	constructHtml : function() {
+		this.recsWrapper = jQuery("<div class='certona__recs-wrapper'></div>");
+		this.recsWrapper.append("\
+			<h2 class='ruled--header'>\
+				<span class='subheading--text'>" + this.widgetTitle + "</span>\
+			</h2>\
+			<div class='certona__recs-grid grid-root'>\
+				<div class='certona__recs-slide'></div>\
+			</div>\
+		");
+		this.recsWrapper.addClass(this.scheme);
+		if (!this.isMobile) {
+			this.recsWrapper.addClass('desktop');
+		}
+		this.slider = this.recsWrapper.find('.certona__recs-slide');
+		this.grid = this.recsWrapper.find(".certona__recs-grid");
+		this.constructProductCardHtml();
+		this.insertNavArrows();
+		jQuery(".l--cat-page-photos").prepend(this.recsWrapper);
+		jQuery('.oncategory1_rr').css('display','none');
+		jQuery('.oncategory1_rr').hide();
+		CertonaInjectionManager[this.scheme] = true;
+		if (!this.isMobile) {
+			jQuery(document).trigger(this.injectEvent);
+		}
+	}
+};
+/*************************
+CREATES OC WIDGET
+*************************/
+var segShowOC ='';
+var CertonaOCWidget = function(response,scheme) {
+	this.response = response;
+	this.scheme = scheme;
+	this.schemeItems = CertonaProductRecWidget.prototype.parseCertonaResponse.call(this);
+	this.trackId = scheme;
+	this.isMobile = (jQuery(window).width()<768) ? true : false;
+	this.widgetTitle = (this.isMobile) ? "MORE AMAZING&nbsp;&nbsp;<br />STYLES TO LOVE" : "MORE AMAZING STYLES TO LOVE";
+	this.constructProductCardHtml = CertonaProductRecWidget.prototype.constructProductCardHtml.bind(this);
+	this.ProductCardConstructor = CertonaProductRecWidget.prototype.ProductCardConstructor;
+	this.returnProductCardHtml = CertonaProductRecWidget.prototype.returnProductCardHtml;
+	this.injectEvent = "ocInjected";
+	this.cid = "";
+};
+CertonaOCWidget.prototype = {
+	constructor : CertonaOCWidget,
+	init : function() {
+		if (this.schemeItems && this.schemeItems.length>0) {
+			this.constructHtml();
+		}
+	},
+	constructHtml : function() {
+		this.recsWrapper = jQuery("<div class='certona__recs-wrapper'></div>");
+		this.recsWrapper.append("\
+			<div class='certona__hp-title'>\
+				<span class='certona__hp-title-text'>" + this.widgetTitle + "</span>\
+			</div>\
+			<div class='certona__recs-grid grid-root'>\
+				<div class='certona__recs-slide'></div>\
+			</div>\
+		");
+		this.recsWrapper.addClass(this.scheme);
+		this.slider = this.recsWrapper.find('.certona__recs-slide');
+		this.grid = this.recsWrapper.find(".certona__recs-grid");
+		this.constructProductCardHtml();
+		//this.insertNavArrows();
+		if (this.isMobile) {
+			this.recsWrapper.addClass('mobile');
+		}
+		else {
+			this.grid.find('.certona__product-card').removeClass('g-1280-1-5 g-lg-1-4').addClass('g-lg-1-3');
+		}
+		jQuery(".universalSectionContainer .limit-width #orderConfirmWrapper").after(this.recsWrapper);
+		/*Start of optimizely code*/
+		var OCoptiVar = '';
+		OCoptiVar = ONOrderConfirmOptimizely;
+		if(typeof OCoptiVar !== 'undefined' && ['B'].indexOf(OCoptiVar) >=0){
+			if(jQuery(window).width() > 767){
+				jQuery('#messageBlock').addClass('optlyChildWrap');
+	  			jQuery('.universalSectionContainer .limit-width #orderConfirmWrapper').addClass('optlyChildWrap');
+	  			jQuery('.optlyChildWrap').wrapAll( "<div class='optlyBlkWrap' />");
+	  			jQuery('.universalSectionContainer').find('.onorderconf1_rr').wrap('<div class="optlyCertonaBlkWrap" />');
+			}else{
+				jQuery('.onorderconf1_rr').find('.certona__hp-title-text').html('MORE AMAZING STYLES TO LOVE');
+			}
+
+		}else{
+			jQuery('.onorderconf1_rr').css('display','none');
+			jQuery('.onorderconf1_rr').hide();
+		}
+
+		/* end of optimizely code */
+		if (!this.isMobile) {
+			var $this = this;
+			jQuery(document).trigger(this.injectEvent);
+		}
+		CertonaInjectionManager[this.scheme] = true;
+	}
+};
+/*************************
+CREATES IN-LINE PRODUCT PAGE WIDGET(S)
+*************************/
+var CertonaProductRecWidget = function(response,scheme) {
+	this.response = response;
+	this.scheme = scheme;
+	this.widgetTitle = CertonaSchemasWidgetTitles[scheme];
+	this.schemeItems = this.parseCertonaResponse();
+	this.trackId = this.scheme;
+	this.isMobile = (jQuery(window).width()<768) ? true : false;
+	this.arrowSrc = "/Asset_Archive/GPWeb/content/0012/501/555/assets/carat-l-black.svg";
+	this.injectEvent = this.scheme + "injected";
+	this.cid = gidLib.getQuerystringParam('cid');
+};
+CertonaProductRecWidget.prototype = {
+	constructor : CertonaProductRecWidget,
+	init : function() {
+		if (this.schemeItems && this.schemeItems.length>0) {
+			this.constructHtml();
+			//jQuery('.l--recommendations').remove();
+			jQuery('.l--recommendations').css('display','none');
+		}
+	},
+	parseCertonaResponse : function() {
+		var schemeItems = [];
+		if (this.response.hasOwnProperty('resonance') && this.response.resonance.hasOwnProperty('schemes')) {
+			var schemes = this.response.resonance.schemes;
+			for (i=0;i<schemes.length;i++) {
+				if (schemes[i].scheme == this.scheme && typeof schemes[i].items != 'undefined' && typeof schemes[i].items.length=="number") {
+					schemeItems = schemes[i].items;
+					//fire Omni for items returned
+					var itemsReturned = (schemeItems.length>0) ? "true" : "false";
+					var productId = (/product.do/.test(location.pathname)) ? "_" + gidLib.getQuerystringParam('pid') : "";
+					var omniValue = "certonaItemsReturned_" + this.scheme + productId + "_" + itemsReturned;
+
+					if (typeof schemes[i].explanation != 'undefined' && schemes[i].explanation.length>2) {
+						this.widgetTitle = schemes[i].explanation;
+					}
+				}
+			}
+		}
+		return schemeItems;
+	},
+	constructHtml : function() {
+		this.recsWrapper = jQuery("<div class='certona__recs-wrapper'></div>");
+		if(this.scheme == 'onxproduct1_rr'){
+			this.recsWrapper.append("\
+				<h2 class='ruled--header'>\
+					<div class='ruled--header--text ruled--header-width'>\
+						<span>" + this.widgetTitle + "</span>\
+						<span>\
+							<img class='ruled--header--logoimg' src='/Asset_Archive/ONWeb/content/0013/924/184/assets/Gap.svg' alt ='gap logo'/>\
+						</span>\
+					</div>\
+				</h2>\
+				<div class='certona__recs-grid grid-root'>\
+					<div class='certona__recs-slide'></div>\
+				</div>\
+			");
+		}
+		else{
+			this.recsWrapper.append("\
+				<h2 class='ruled--header'>\
+					<span class='ruled--header--text'>" + this.widgetTitle + "</span>\
+				</h2>\
+				<div class='certona__recs-grid grid-root'>\
+					<div class='certona__recs-slide'></div>\
+				</div>\
+			");
+		}
+		this.recsWrapper.addClass(this.scheme);
+		if (!this.isMobile) {
+			this.recsWrapper.addClass('desktop');
+		}
+		this.slider = this.recsWrapper.find('.certona__recs-slide');
+		this.grid = this.recsWrapper.find(".certona__recs-grid");
+		this.constructProductCardHtml();
+		this.insertNavArrows();
+		if(this.scheme == 'onxproduct1_rr'){
+			this.recsWrapper.find('.certona__product-card__image').addClass('crossBrdRelative');
+			this.recsWrapper.find('.certona__product-card__image').prepend("<img class='certona__product-card__logoimg' src='/Asset_Archive/ONWeb/content/0013/924/184/assets/Gap.svg' alt ='gap logo'/>");
+		}
+		jQuery(".l--social").before(this.recsWrapper);
+		jQuery('.onxproduct1_rr').css('display','none');
+		jQuery('.onxproduct1_rr').hide();
+		CertonaInjectionManager[this.scheme] = true;
+		if (!this.isMobile) {
+			jQuery(document).trigger(this.injectEvent);
+		}
+	},
+	constructProductCardHtml : function() {
+		var productCard = this.ProductCardConstructor;
+		for (i=0;i<this.schemeItems.length;i++) {
+			var thisProductCard = new productCard(this.schemeItems[i],this.trackId,this.cid,(i + 1));
+			var createHtml = this.returnProductCardHtml.bind(thisProductCard);
+			var productCardHtml = createHtml();
+			productCardHtml.appendTo(this.slider);
+		}
+	},
+	ProductCardConstructor : function(obj,trackId,cid,index) {
+		this.pid = obj.ID;
+		this.ImageURL = stripImgUrlHost(obj.ImageURL);
+		this.DetailURL = obj.DetailURL + "&mlink=5050,12413545," + trackId + "_" +
+			index + "&clink=12413545";
+		if (this.DetailURL.indexOf('vid=')>-1) {
+			this.DetailURL = this.DetailURL.replace(/vid=(\d)+&/,"");
+		}
+		this.ProductName = obj.ProductName;
+		this.OriginalPrice = obj.OriginalPrice;
+		this.CurrentPrice = obj.CurrentPrice;
+	},
+	returnProductCardHtml : function() {
+		var cardHtml = jQuery("<div class='certona__product-card g-2-5 g-lg-1-4 g-1280-1-5'></div>");
+		if(certona.pagetype == "PURCHASE"){
+			cardHtml.append("\
+				<div class='certona__product-card__inner'>\
+					<a class='certona__product-card__anchor' href='" + this.DetailURL + "'>\
+						<div class='certona__product-card__image'>\
+							<img src='" + this.ImageURL + "' alt='product recommendations' />\
+						</div>\
+						<div class='certona__product-card__text sds_font--primary'>" + this.ProductName + "</div>\
+					</a>\
+				</div>\
+			");
+			if(this.CurrentPrice < this.OriginalPrice){
+				cardHtml.find('.certona__product-card__text').after("\
+					<div class='certona__product-card__text sds_font--primary product-card-price--strike'>$" + this.OriginalPrice + "</div>\
+					<div class='certona__product-card__text sds_font--primary product-card-price--highlight'>$" + this.CurrentPrice + "</div>\
+				");
+			}else{
+				cardHtml.find('.certona__product-card__text').after("\
+					<div class='certona__product-card__text sds_font--primary product-card-price product-card--regular'>$" + this.OriginalPrice + "</div>\
+				");
+			}
+		}else{
+			cardHtml.append("\
+				<div class='certona__product-card__inner'>\
+					<a class='certona__product-card__anchor' href='" + this.DetailURL + "'>\
+						<div class='certona__product-card__image'>\
+							<img src='" + this.ImageURL + "' alt='product recommendations' />\
+						</div>\
+						<div class='certona__product-card__text sds_font--primary'>" + this.ProductName + "</div>\
+					</a>\
+				</div>\
+			");
+		}
+
+		return cardHtml;
+	},
+	insertNavArrows : function() {
+		if (!this.isMobile) {
+			this.grid.append("\
+				<div class='certona-arrow left'>\
+					<img src='" + this.arrowSrc + "' />\
+				</div>\
+				<div class='certona-arrow right'>\
+					<img src='" + this.arrowSrc + "' />\
+				</div>\
+			");
+			var $this = this;
+			jQuery(document).on(this.injectEvent,function(){
+				$this.addScrollArrowHandlers();
+			});
+		}
+	},
+	addScrollArrowHandlers : function() {
+    	var $this = this;
+    	var grid = jQuery('.' + this.scheme + ' .certona__recs-grid');
+    	var slider = jQuery('.' + this.scheme + ' .certona__recs-slide');
+    	var arrows = jQuery('.' + this.scheme + ' .certona-arrow');
+    	var leftArrow = jQuery('.' + this.scheme + ' .certona-arrow.left');
+    	var rightArrow = jQuery('.' + this.scheme + ' .certona-arrow.right');
+    	var scrollUnit = grid.outerWidth() / 2;
+    	var maxScroll,scrollWindowWidth;
+    	var scrollWindow = slider;
+    	var leftArrowIsHidden = true;
+	    var rightArrowIsHidden = false;
+	    function hideShowArrows(currentScroll) {
+	    	if (currentScroll>0 && leftArrowIsHidden){
+    			leftArrow.css({'opacity':'1'});
+    			leftArrowIsHidden = false;
+    		}
+    		else if (currentScroll==0 && !leftArrowIsHidden) {
+    			leftArrow.css({'opacity':'0.3'});
+    			leftArrowIsHidden = true;
+    		}
+    		else if (currentScroll<maxScroll && rightArrowIsHidden) {
+    			rightArrow.css({'opacity':'1'});
+    			rightArrowIsHidden = false;
+    		}
+    		else if (currentScroll==maxScroll && !rightArrowIsHidden) {
+    			rightArrow.css({'opacity':'0.3'});
+    			rightArrowIsHidden = true;
+    		}
+	    }
+    	function calcMinMax() {
+    		var viewPortWidth = grid.outerWidth() - 60;
+    		scrollWindowWidth = (scrollWindow.length>0) ? scrollWindow[0].scrollWidth : 0;
+    		maxScroll = scrollWindowWidth - viewPortWidth;
+    		if (maxScroll>0) {
+    			var currentScroll = scrollWindow.scrollLeft();
+    			hideShowArrows(currentScroll);
+    		}
+    		else {
+    			arrows.hide();
+    		}
+    	}
+    	calcMinMax();
+    	jQuery(window).on('resize',function(){
+    		calcMinMax();
+    	});
+    	arrows.on('click',function(){
+    		var currentScroll = scrollWindow.scrollLeft();
+    		if (jQuery(this).hasClass('right')) {
+    			var newSrollPos = currentScroll + scrollUnit;
+    		}
+    		else {
+    			var newSrollPos = currentScroll - scrollUnit;
+    		}
+    		if (newSrollPos > maxScroll) {
+    			newSrollPos = maxScroll;
+    		}
+    		else if (newSrollPos<0) {
+    			newSrollPos = 0;
+    		}
+    		scrollWindow.animate({scrollLeft:newSrollPos});
+    	});
+    	scrollWindow.on('scroll',function(){
+    		currentScroll = jQuery(this).scrollLeft();
+    		hideShowArrows(currentScroll);
+    	});
+    },
+    initRightRailExp : function(isFirstWidget) {
+    	if (this.schemeItems && this.schemeItems.length>0) {
+    		if (this.schemeItems.length>5) {
+    			this.schemeItems.splice(5,(this.schemeItems.length - 5));
+    		}
+    		if (isFirstWidget) {
+    			this.injectContainer();
+    		}
+			this.constructRightRailHtml();
+		}
+    },
+    injectContainer : function() {
+    	jQuery('#product').css({
+    		'width':'84%',
+    		'display':'inline-block',
+    		'vertical-align':'top'
+    	}).after('<div class="certona__right-rail"></div>');
+    },
+    constructRightRailHtml : function() {
+    	this.recsWrapper = jQuery('<div class="certona__recs-wrapper"></div>');
+    	this.recsWrapper.append('\
+    		<span class="label">' + this.widgetTitle + '</span>\
+    		<div class="certona__recs-grid grid-root">\
+    			<div class="certona__recs-slide"></div>\
+    		</div>\
+    	');
+    	this.slider = this.recsWrapper.find('.certona__recs-slide');
+		this.grid = this.recsWrapper.find('.certona__recs-grid');
+    	this.constructProductCardHtml();
+    	this.recsWrapper.find('.certona__product-card').removeClass('g-lg-1-4 g-1280-1-5').addClass('g-lg-1-1');
+    	this.recsWrapper.appendTo('.certona__right-rail');
+    }
+};
+//end product page sliders
+/*************************
+Certona Callback for Recommendations Widgets. Initialize widgets inside this function
+*************************/
+var initializeExperienceFlag = false;
+function certonaRecommendations(response) {
+	function initializeExperience() {
+			if (certona.pagetype=="PRODUCT") {
+				var brandSchemaKey = "onproduct";
+				for(var i=0 ; i< CertonaSchemas[brandSchemaKey].length; i++){
+					var currentSchema = CertonaSchemas[brandSchemaKey][i];
+					if (!CertonaInjectionManager[currentSchema] && currentSchema.endsWith("onproduct1_rr")) {
+						var similarStylesWidget = new CertonaProductRecWidget(response,currentSchema);
+							similarStylesWidget.init();
+					}
+					if (!CertonaInjectionManager[currentSchema] && currentSchema.endsWith("onproduct2_rr")) {
+						var justForYouWidget = new CertonaProductRecWidget(response,currentSchema);
+						justForYouWidget.init();
+					}
+
+					if (!CertonaInjectionManager['onxproduct1_rr'] && currentSchema.endsWith("onxproduct1_rr")) {
+						var crossBrandRecs = new CertonaProductRecWidget(response,'onxproduct1_rr');
+						crossBrandRecs.init();
+					}
+				}
+				setTimeout(function(){
+					if (!CertonaInjectionManager['onaddtocart1_rr']) {
+						if (jQuery(window).width()>767 && jQuery(window).height()>700) {
+							var inSituWidget = new CertonaInSituWidget(response,'onaddtocart1_rr');
+							inSituWidget.init();
+						}
+					}
+				},800);
+
+			}
+			else if (certona.pagetype=="CART") {
+				var brandSchemaKey = "oncart";
+				for(var i=0 ; i< CertonaSchemas[brandSchemaKey].length; i++){
+					var currentSchema = CertonaSchemas[brandSchemaKey][i];
+					if (!CertonaInjectionManager[currentSchema] && currentSchema.endsWith("cart1_rr")) {
+						var shopBagWidget = new CertonaShopBagWidget(response,currentSchema);
+						shopBagWidget.init();
+					}
+				}
+			}
+			// No HP Widget on ON to start
+			else if (certona.pagetype=="HOME") {
+				var brandSchemaKey = "onhome";
+				for(var i=0 ; i< CertonaSchemas[brandSchemaKey].length; i++){
+					var currentSchema = CertonaSchemas[brandSchemaKey][i];
+					if (!CertonaInjectionManager[currentSchema] && currentSchema.endsWith("home1_rr")) {
+
+						if( mktOptly5_loaded === true ) {
+							var hpWidget = new CertonaHPWidget(response,currentSchema);
+							hpWidget.init();
+						}
+						else {
+							jQuery( document ).on("container--mkt_reg-hp--optly5:loaded", function() {
+								var hpWidget = new CertonaHPWidget(response,currentSchema);
+								hpWidget.init();
+							});
+						}
+
+					}
+				}
+			}
+			else if (certona.pagetype=="PURCHASE") {
+				if (!CertonaInjectionManager['onorderconf1_rr']) {
+					var ocWidget = new CertonaOCWidget(response,'onorderconf1_rr');
+					ocWidget.init();
+				}
+			}
+			else if (certona.pagetype=="CATEGORY") {
+				if (!CertonaInjectionManager['oncategory1_rr']) {
+					var catWidget = new CertonaCategoryWidget(response,'oncategory1_rr');
+					catWidget.init();
+				}
+			}
+	}
+	if (initializeExperienceFlag) {
+		initializeExperience();
+	}
+	else {
+		jQuery(document).on('certonaUserSeg:ready',function(){
+			initializeExperience();
+		});
+	}
+}
+/*************************
+fills certona tracking object and inserts resonance tag in head
+*************************/
+(function() {
+	jQuery(document).on('certonaObj:ready',function(){
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		var testEnvirons = "gidapps.com";
+		if (location.hostname.endsWith(testEnvirons)) {
+			script.src = '//edge1.certona.net/cd/df9bcbd6/gap_staging/scripts/resonance.js';
+		} else {
+			script.src = '//edge1.certona.net/cd/df9bcbd6/gap.com/scripts/resonance.js';
+		}
+		document.getElementsByTagName('head')[0].appendChild(script);
+		//jQuery(document).trigger('certonaUserSeg:ready');
+	});
+	//callback to add pagetype to Search page
+	function checkProductQty() {
+		var qty = 0;
+		if ('gap' in window && 'viewModel' in gap && 'productCategory' in gap.viewModel) {
+			if (typeof gap.viewModel.productCategory.k_totalItems =="function") {
+				qty = gap.viewModel.productCategory.k_totalItems();
+			}
+		}
+		certona.pagetype = (qty>0) ? "SEARCH" : "NOSEARCH";
+		jQuery(document).trigger('certonaObj:ready');
+	}
+	//converts array of product ids to ; delimited string for Favorites and Shop Bag
+	function convertProductArrayToString(productArray,prop) {
+		var productString = "";
+		if (productArray.length>0) {
+			for (i=0;i<productArray.length;i++) {
+				productString += productArray[i][prop];
+				if (i<productArray.length - 1) {
+					productString += ";";
+				}
+			}
+		}
+		return productString;
+	}
+	//callback to add product ids on Favorites page
+	function parseFavoritesProductIds() {
+		var productString = "";
+		if ('gap' in window && 'viewModel' in gap && 'favoritesGrid' in gap.viewModel) {
+			if (typeof gap.viewModel.favoritesGrid.favorites =="function") {
+				var productArray = gap.viewModel.favoritesGrid.favorites();
+				productString = convertProductArrayToString(productArray,'stylecolor');
+			}
+		}
+		certona.itemid = productString;
+		jQuery(document).trigger('certonaObj:ready');
+	}
+	//event listener for Favorites and Search pages
+	function subscribeToCategoryEvent(ev,callback) {
+		jQuery(document).ready(function(){
+			if ('ps' in window) {
+				ps.subscribe(ev,function(){
+					callback();
+				});
+			}
+		});
+	}
+	//get product id's from Shopping Bag Angular module
+	function parseShopBagProductIds() {
+		jQuery(document).ready(function(){
+			if(window["angular"] != null){
+				var productString = "";
+				var invokeQueueObj = angular.module('gid.values.initialBag')._invokeQueue[0][2][1];
+				if ("shoppingBag" in invokeQueueObj && "activeItems" in invokeQueueObj.shoppingBag) {
+					var productArray = invokeQueueObj.shoppingBag.activeItems;
+					productString = convertProductArrayToString(productArray,'colorStyleNumber');
+				}
+				certona.itemid = productString;
+				jQuery(document).trigger('certonaObj:ready');
+			}
+		});
+	}
+	//parses transaction data from checkout for use on order confirmation
+	function setCheckoutCookie() {
+		var localStorageAvailable = false;
+		if (typeof Storage !='undefined') {
+			try {
+				sessionStorage.cerCheckout = 'testingStorage';
+				localStorageAvailable = true;
+			}
+			catch(e) {
+				localStorageAvailable = false;
+			}
+		}
+		if (gidLib.getCookieVar('mktGlobalSession','cerCheckout')!="") {
+			gidLib.setCookieVar('mktGlobalSession','cerCheckout','');
+		}
+		function checkForLineItems() {
+			var lineItemsFound = false;
+			var counter = 0;
+			var model = checkout.model;
+			var liCheck = setInterval(function(){
+				counter++;
+				if ('data' in model && 'shoppingBag' in model.data && 'lineItems' in model.data.shoppingBag && model.data.shoppingBag.lineItems !== null) {
+					clearInterval(liCheck);
+					jQuery(document).trigger('certona:lineItemsReady');
+				}
+				if (counter>10) {
+					clearInterval(liCheck);
+				}
+			},50);
+		}
+		function parseLineItems() {
+			var certonaCheckoutJson = {
+				itemBrandString : "",
+				itemIdString : "",
+				itemQtyString : "",
+				itemPriceString : "",
+				subtotal : 0
+			};
+			var lineItems = checkout.model.data.shoppingBag.lineItems;
+			if (typeof lineItems.length != 'undefined') {
+				for (i=0;i<lineItems.length;i++) {
+					if (typeof lineItems[i].skuNumberRo != 'undefined') {
+						certonaCheckoutJson.itemIdString += lineItems[i].skuNumberRo.substr(0,9);
+					}
+					if (typeof lineItems[i].brandRo != 'undefined' && typeof itemsBrandRo[lineItems[i].brandRo] != 'undefined') {
+						certonaCheckoutJson.itemBrandString += itemsBrandRo[lineItems[i].brandRo];
+					}
+					certonaCheckoutJson.itemQtyString += lineItems[i].quantityRo;
+					certonaCheckoutJson.itemPriceString += lineItems[i].subTotalAfterDiscountsRo;
+					certonaCheckoutJson.subtotal = certonaCheckoutJson.subtotal + Number(lineItems[i].subTotalAfterDiscountsRo);
+					if (i<lineItems.length - 1) {
+						certonaCheckoutJson.itemIdString += ";";
+						certonaCheckoutJson.itemQtyString += ";";
+						certonaCheckoutJson.itemPriceString += ";";
+						certonaCheckoutJson.itemBrandString += ";";
+					}
+				}
+				certonaCheckoutJson.subtotal = certonaCheckoutJson.subtotal.toFixed(2).toString();
+				var certonaCheckoutCookie = JSON.stringify(certonaCheckoutJson);
+				if (localStorageAvailable) {
+					sessionStorage.cerCheckout = certonaCheckoutCookie;
+				}
+				else {
+					gidLib.setCookieVar('mktGlobalSession','cerCheckout',certonaCheckoutCookie);
+				}
+			}
+		}
+		jQuery(document).on("order:dataLoad",function(){
+			jQuery(document).on('certona:lineItemsReady',function(){
+				parseLineItems();
+			});
+			checkForLineItems();
+		});
+	}
+	//sets certona properties on order confirmation
+	function parseOrderConfirmValues() {
+		certona.brand = "";
+		certona.itemid = "";
+		certona.qty = "";
+		certona.price = "";
+		certona.total = "";
+		if (typeof sessionStorage.cerCheckout != 'undefined') {
+			var certonaCheckoutCookie = sessionStorage.cerCheckout;
+		}
+		else {
+			var certonaCheckoutCookie = gidLib.getCookieVar('mktGlobalSession','cerCheckout');
+		}
+		if (certonaCheckoutCookie!="") {
+			var certonaCheckoutJson = JSON.parse(certonaCheckoutCookie);
+			certona.brand = certonaCheckoutJson.itemBrandString;
+			certona.itemid = certonaCheckoutJson.itemIdString;
+			certona.qty = certonaCheckoutJson.itemQtyString;
+			certona.price = certonaCheckoutJson.itemPriceString;
+			certona.total = certonaCheckoutJson.subtotal;
+			try {
+				sessionStorage.cerCheckout = '';
+			}
+			catch(e) {
+				gidLib.removeCookieVar('mktGlobalSession','cerCheckout');
+			}
+		}
+		jQuery(document).ready(function(){
+			var orderID = '';
+			certona.transactionid = (typeof orderID != 'undefined') ? orderID : "";
+			jQuery(document).trigger('certonaObj:ready');
+		});
+	}
+	//fill certona hosted object
+	certona.customerid = (gidLib.getCookie('customerId')) ? gidLib.getCookie('customerId').replace(/\|/g,"") : "";
+	// updating emailcustomerid  in certona object 01/06/2017
+	var path_emailCustId = gidLib.getQuerystringParam('DI');
+	var cookie_emailCustIdV = '';
+	var cookie_emailCustId = gidLib.getCookie('mktUniversalPersist');
+	if(path_emailCustId == '' && cookie_emailCustId != ''){
+		var match_arr = cookie_emailCustId.match(/(^.|&*)DI=(.*?)(&|$)/);
+		if(match_arr != null){
+			cookie_emailCustIdV = match_arr[2];
+			//console.info('emailcustomerid from cookie: '+ cookie_emailCustIdV);
+		}
+	}
+	certona.emailcustomerid = (path_emailCustId != '') ? path_emailCustId : cookie_emailCustIdV;
+	//console.info('emailcustomerid: '+ certona.emailcustomerid);
+	// End of email customer id
+	switch (location.pathname) {
+		case "/" :
+		case "/browse/home.do" :
+			certona.pagetype = "HOME";
+			certona.site = "ON";
+			certona.recommendations = true;
+			jQuery(document).trigger('certonaObj:ready');
+			break;
+		case "/browse/division.do" :
+		case "/browse/subDivision.do" :
+			certona.pagetype = "CATEGORYLANDING";
+			certona.ParentCategoryID = gidLib.getQuerystringParam('cid');
+			certona.categoryid = gidLib.getQuerystringParam('cid');
+			certona.divisionid = gidLib.getQuerystringParam('cid');
+			certona.subdivisionid = "";
+			certona.site = "ON";
+			certona.recommendations = false;
+			jQuery(document).trigger('certonaObj:ready');
+			//add api call
+			break;
+		case "/browse/category.do" :
+			certona.pagetype = "CATEGORY";
+			certona.categoryid = gidLib.getQuerystringParam('cid');
+			certona.divisionid = "";
+			certona.subdivisionid = "";
+			certona.site = "ON";
+			certona.recommendations = true;
+			jQuery(document).trigger('certonaObj:ready');
+			//add api call
+			break;
+		case "/browse/search.do" :
+			certona.recommendations = false;
+			certona.site = "ON";
+			subscribeToCategoryEvent('categoryData:productsOnPage',checkProductQty);
+			break;
+		case "/browse/product.do" :
+			certona.pagetype = "PRODUCT";
+			certona.itemid = gidLib.getQuerystringParam('pid');
+			if (certona.itemid.length>9) {
+				certona.itemid = certona.itemid.substr(0,9);
+			}
+			certona.categoryid = gidLib.getQuerystringParam('cid');
+			certona.site = "ON";
+			certona.recommendations = true;
+			jQuery(document).trigger('certonaObj:ready');
+			break;
+		case "/profile/account_summary.do" :
+			certona.pagetype = "ACCOUNT";
+			certona.site = "ON";
+			certona.recommendations = false;
+			jQuery(document).trigger('certonaObj:ready');
+			break;
+		case "/profile/order_history.do" :
+			certona.pagetype = "ORDERHISTORY";
+			certona.site = "ON";
+			certona.recommendations = false;
+			jQuery(document).trigger('certonaObj:ready');
+			break;
+		case "/profile/favorites.do" :
+			certona.pagetype = "WISHLIST";
+			certona.site = "ON";
+			certona.recommendations = false;
+			subscribeToCategoryEvent('page-content-loaded',parseFavoritesProductIds);
+			break;
+		case "/buy/shopping_bag.do" :
+			certona.pagetype = "CART";
+			certona.site = "ON";
+			certona.recommendations = true;
+			parseShopBagProductIds();
+			break;
+		case "/buy/shopping_cart.do" :
+			certona.pagetype = "CART";
+			certona.site = "ON";
+			certona.recommendations = true;
+			parseShopBagProductIds();
+			break;
+		case "/checkout/order.do" :
+			setCheckoutCookie();
+			break;
+		case "/checkout/orderConfirm.do" :
+				certona.pagetype = "PURCHASE";
+				certona.site = "ON";
+				certona.brand = "GAP, ON, BR, AT";
+				certona.recommendations = true;
+				parseOrderConfirmValues();
+				break;
+		/*case "/checkout/orderConfirm.do" :
+			certona.pagetype = "ORDERCONFIRMATION";
+			certona.recommendations = true;
+			jQuery(document).trigger('certonaObj:ready');
+			break;*/
+		default :
+			certona.pagetype = "";
+			certona.recommendations = false;
+	}
+})(certona);
+
+function initCertBaseCode() {
+	if(debugCert) {console.info('%c personalization ret','color:purple');}
+	var browserType = false || !!document.documentMode;
+	if(browserType){
+		setTimeout(function(){
+			jQuery(document).trigger('certonaUserSeg:ready');
+		},2000);
+	}else{
+		jQuery(document).trigger('certonaUserSeg:ready');
+	}
+	initializeExperienceFlag = true;
+}
+
+// Personalization is ready already, run function. Note over-engineered if check (we could take the check even further)
+if( typeof personalizationService !== "undefined" && typeof personalizationService.model !== "undefined" && typeof personalizationService.model.isPersonalizationDataReady == "boolean" && personalizationService.model.isPersonalizationDataReady === true ) {
+	initCertBaseCode();
+} else {
+	initCertBaseCode();
+};
+
+
+</script>
+<!-- END Certona -->
+</div><!-- END: /0014/679/669/cn14679669.html -->
+<!-- @Container(containerId:"10000423",isBodyContainer:"true") -->
+
+<!-- override for the bgdImg in the responsive edfs  -->
+<style>
+  .edfs.en_US {
+   background-image: none;
+   height: 40px;
+}
+</style>
+
+<script>
+jQuery(window).ready( function() {
+	var edfsSrc1 = "/Asset_Archive/ONWeb/content/0010/227/895/assets/US_OldNavy_edfs_700px.png";
+	var edfsSrc2 = "/content/static/edfs/onol/on_us.png"
+	if (window["ps"] != undefined) {
+		ps.subscribe ('bp-change', function() {
+			if(gap.Mediaqueries.currentBP.size == 'large' || gap.Mediaqueries.currentBP.size == 'x-large' ) {
+				jQuery('#ON_edfs_img').attr('src',edfsSrc1);
+			}
+			if(gap.Mediaqueries.currentBP.size == 'small' || gap.Mediaqueries.currentBP.size == 'medium' ) {
+				jQuery('#ON_edfs').css('margin-top','3px'); // fix edfs overlapping with the hamburger nav and search icon on sm bp
+				jQuery('#ON_edfs_img').attr('src',edfsSrc2);
+			}
+		})
+	}
+});
+</script>
+<!-- END: /0012/639/034/cn12639034.html -->

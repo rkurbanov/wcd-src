@@ -1,0 +1,185 @@
+<!-- BEGIN: /0014/611/049/cn14611049.html --><!-- @TemplateContentLayout(templateRegionName:"sitewide.ticker.sm") -->
+<!-- Division Navigation 4 (10000392)  med/small breakpoints only -->
+<!-- BEGIN: /0014/594/994/cn14594994.html --><div id="contentItemContainer10000392" class="14594994"><style type='text/css'>
+.mkt_mod-promo-banner{ display: none; }
+  .mkt_mod-promo-banner > div.mkt_container > span { font-family: "FranklinGothic","Open Sans",Helvetica Neue,Helvetica,Arial,Roboto,sans-serif; font-weight:400; letter-spacing: .1px;}
+  .mkt_mod-promo-banner > div.mkt_container span.mkt_promoCode{display:inline-block; font-weight: 600;
+}
+
+/*text fade*/
+@keyframes mkt_textFade{
+  0% { opacity:1;pointer-events:auto;}
+  45% { opacity:1;pointer-events:auto;}
+  55% { opacity:0; pointer-events:none;}
+  100% { opacity:0; pointer-events:none;}
+}
+
+@media(max-width: 375px){
+    .mkt_mod-promo-banner .sds_nowrap{ white-space: normal; }
+}
+
+@media(max-width: 767px){
+  .mkt_mod-promo-banner{ padding:1em; }
+  .mkt_mod-promo-banner > div.mkt_container span { display:block; line-height: 1.2em;}
+  .mkt_mod-promo-banner > div.mkt_container > span.mkt_underline{ text-decoration: underline; }
+}
+@media(min-width:768px){
+  .mkt_mod-promo-banner { background-color: #003764; color: #fff;  }
+  .mkt_mod-promo-banner div.mkt_container{ 
+    width:100%; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around; 
+    align-items: center; 
+  }
+  .mkt_mod-promo-banner > div.mkt_container > span { padding: 15px 12px 14px; letter-spacing: 1px;}
+
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--12,
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--14,
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--15{ font-size: 13px; }
+  .mkt_mod-promo-banner > div.mkt_container > span.sds_font-size--14.sds_color--s4{ color:#fff; }
+  .mkt_mod-promo-banner > div.mkt_container > span > span {display: block;}
+
+  .mkt_mod-promo-banner > div.mkt_container > span > span.mkt_textFade{
+    width:100%;
+    height:100%;
+    background-color: #003764;
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    animation-name: mkt_textFade;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-direction: alternate;
+  }
+}
+@media(min-width: 1024px){
+  .mkt_mod-promo-banner > div.mkt_container > span { padding: 15px 15px 14px; }
+}
+
+.moduleWrapper .mkt_mod-promo-banner{
+  display:block;
+}
+</style>
+
+
+<div class="mkt_mod-promo-banner sds_font-size--13 sds_tx_center sds_uppercase sds_grid-root">
+  <div class="mkt_container sds_g-1-1">
+      <span class="sds_font-size--12">ONLINE EXCLUSIVE</span>
+      <span class="sds_font-size--15 sds_relative animation-container" >
+        <span class="sds_nowrap">EXTRA 20% OFF EVERYTHING</span>
+        <!-- <span class="mkt_textFade sds_nowrap"></span> -->
+      </span>
+      <span class="sds_font-size--14 sds_color--s4">DISCOUNT APPLIED AT CHECKOUT<span class="mkt_promoCode"></span></span>
+      <span class="sds_nowrap">TODAY ONLY</span>
+      <span class="mkt_underline"><a onclick="return disruptorManager.showPromoLegalPopup('/buy/promo_legal_details.do?promoId=385513');">DETAILS</a></span>
+  </div>
+</div>
+
+<script>
+var disruptorManager = {
+  showPromoLegalPopup : function(u){
+    wcdLib.trackValue(this,'promo_legal','promo_legal','eVar7');
+    gap.UniversalModal.publishModal({
+      modalSize: 'standard',
+      actionSheet: 'small',
+      url: u
+    });
+    return false;
+  }
+};
+
+if(location.pathname.indexOf("/buy/shopping_bag.do")>=0){
+  jQuery(".mkt_mod-promo-banner").css('display','block');
+}
+
+</script></div><!-- END: /0014/594/994/cn14594994.html -->
+<!-- Division Navigation 5 (10000391) - Used for sitewide banner -->
+<!-- BEGIN: /0014/511/926/cn14511926.html --><div id="contentItemContainer10000391" class="14511926"><style>
+
+.small-ocp-container{
+	display:block;
+	float:left;
+	position: relative;
+	margin-top:10px;
+}
+
+</style>
+<script>
+
+	// using timeout (separate thread) because Document-ready not firing in SMall BP only for some reason.
+	// so I can't do it the normal way with document-ready
+	//
+	if(location.pathname == "/checkout/orderConfirm.do"){
+		var temp = setTimeout(function(){
+			if(window.innerWidth < 569){
+				console.log("timeout 1000");
+
+				var htmlStr = ''
+					+ '<div class="sds_relative">'
+					+ '<a class="small-ocp-container" href="/browse/info.do?cid=56526&mlink=5151,14511926,ocp_super_cash&clink=14511926" target="_blank">'
+					+ 	'<div class="row-background">'
+					+			'<img class="sds_full" src="/Asset_Archive/ONWeb/content/0014/511/926/assets/120617_US_SC_Earn_OrderConfirmation_s.svg" alt="Super Cash" />'
+					+    '</div>'
+					+ '</a>'
+					+ '</div>'
+					;
+				jQuery("#mainContent").append(htmlStr);
+			}
+		},1000);
+	}
+	
+</script></div><!-- END: /0014/511/926/cn14511926.html -->
+<!--  end ONESITE  Templates -->
+
+<!-- WCD Mobile Horizontal Division Nav -->
+<div class="wcd-division-nav hide-at-lg mkt_reg-topnav mkt_reg-13518818" data-content-item="13518818" style="display:none;">
+	<div class="wcd-division-nav__items">
+		<div class="wcd-division-nav__text-item" data-scrollpos="" data-division="women" data-id="5360"><a href="/browse/division.do?cid=5360" onClick="return mkt_contentClickTracking( this, 'top_nav_W', true );">Women</a><div class="menu-indicator-arrow"></div></div>
+    <div class="wcd-division-nav__text-item" data-scrollpos="" data-division="womens plus" data-id="5585"><a href="/browse/division.do?cid=5585" onClick="return mkt_contentClickTracking( this, 'top_nav_WP', true );">Women's Plus</a><div class="menu-indicator-arrow"></div></div>
+    <div class="wcd-division-nav__text-item" data-scrollpos="" data-division="maternity" data-id="5758"><a href="/browse/division.do?cid=5758" onClick="return mkt_contentClickTracking( this, 'top_nav_Mat', true );">Maternity</a><div class="menu-indicator-arrow"></div></div>
+    <div class="wcd-division-nav__text-item" data-scrollpos="" data-division="men" data-id="5155"><a href="/browse/division.do?cid=5155" onClick="return mkt_contentClickTracking( this, 'top_nav_M', true );">Men</a><div class="menu-indicator-arrow"></div></div>
+    <div class="wcd-division-nav__text-item" data-scrollpos="" data-division="girls" data-id="6027"><a href="/browse/division.do?cid=6027" onClick="return mkt_contentClickTracking( this, 'top_nav_G', true );">Girls</a><div class="menu-indicator-arrow"></div></div>
+    <div class="wcd-division-nav__text-item" data-scrollpos="" data-division="boys" data-id="5910"><a href="/browse/division.do?cid=5910" onClick="return mkt_contentClickTracking( this, 'top_nav_B', true );">Boys</a><div class="menu-indicator-arrow"></div></div>
+    <div class="wcd-division-nav__text-item" data-scrollpos="" data-division="toddler" data-id="6241"><a href="/browse/division.do?cid=6241" onClick="return mkt_contentClickTracking( this, 'top_nav_T', true );">Toddler</a><div class="menu-indicator-arrow"></div></div>
+    <div class="wcd-division-nav__text-item" data-scrollpos="" data-division="baby" data-id="51375"><a href="/browse/division.do?cid=51375" onClick="return mkt_contentClickTracking( this, 'top_nav_Baby', true );">Baby</a><div class="menu-indicator-arrow"></div></div>
+	</div>
+</div>
+
+
+<!-- BEGIN topnav dropdowns -->
+<script type="text/javascript">
+if("/browse/division.do"==location.pathname||"/browse/category.do"==location.pathname||"/browse/product.do"==location.pathname){var selectedDivsionBodyClass=function(){jQuery(document).ready(function(n){var o=jQuery(".mkt_topnav--links li[class*='selected']:first");o.length>0&&o.each(function(n,o){var e=jQuery(o);if("undefined"!=typeof e.attr("data-cid")){var i=e.attr("data-cid");document.body.className+=" division"+i}})})};selectedDivsionBodyClass()}var openTopNavDropDownMenu=function(n){var o=jQuery(n).next("ul");if(o.prev().addClass("open").parent("li").addClass("open"),0==location.pathname.indexOf("/buy/")){var e=o.parent("li").width()+40+"px";o.find("li").css({width:e,"margin-left":"-40px"})}o.stop().slideDown("fast")},closeAllTopNavDropDownMenus=function(){jQuery(".mkt_topnav-container ul .topNav-dropdown-trigger").each(function(n,o){var e=jQuery(o).next("ul");e.stop().slideUp(1,function(){e.prev().removeClass("open").parent("li").removeClass("open")})})};jQuery(document).ready(function(){var n;jQuery(".mkt_topnav--link-new-arrivals").on("mouseenter",function(){n=setTimeout(function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".divisionNewArrivals")},175)}),jQuery(".mkt_topnav--link-new-arrivals").on("mouseleave",function(){clearTimeout(n),closeAllTopNavDropDownMenus()}),jQuery(".mkt_topnav--link-women").on("mouseenter",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division5360")}),jQuery(".mkt_topnav--link-women").on("mouseleave",function(){closeAllTopNavDropDownMenus()}),jQuery(".mkt_topnav--link-men").on("mouseenter",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division5155")}),jQuery(".mkt_topnav--link-men").on("mouseleave",function(){closeAllTopNavDropDownMenus()}),jQuery(".mkt_topnav--link-girls").on("mouseenter",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division6027")}),jQuery(".mkt_topnav--link-girls").on("mouseleave",function(){closeAllTopNavDropDownMenus()}),jQuery(".mkt_topnav--link-boys").on("mouseenter",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division5910")}),jQuery(".mkt_topnav--link-boys").on("mouseleave",function(){closeAllTopNavDropDownMenus()}),jQuery(".divisionNewArrivals").on("focus",function(){n=setTimeout(function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".divisionNewArrivals")},175)}),jQuery(".division5360").on("focus",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division5360")}),jQuery(".division5155").on("focus",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division5155")}),jQuery(".division6027").on("focus",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division6027")}),jQuery(".division5910").on("focus",function(){closeAllTopNavDropDownMenus(),openTopNavDropDownMenu(".division5910")}),jQuery("a").on("focus",function(){jQuery(this).hasClass("drop-down-menu-item")||closeAllTopNavDropDownMenus()}),Modernizr.touch&&jQuery(".mkt_topnav-container li.division").on("click",function(){var n=!0,o=jQuery(this).children("a");if(jQuery(this).children("ul").length>0&&!o.hasClass("open")){var e=jQuery(this).children("ul");o.addClass("open"),e.stop().slideDown("fast"),setTimeout(function(){e.stop().slideUp(function(){o.removeClass("open")})},4e3),n=!1}return n})});var updateTopnavDropdowns=function(){var n=wcdLib.getCurrentDivisionName();n.indexOf("Toddler Boys")>-1||n.indexOf("Toddler Girls")>-1?jQuery(".mkt_topnav--link-toddler").removeClass("mkt_topnav--link-notSelected").addClass("mkt_topnav--link-selected"):n.indexOf("Baby Girls")>-1||n.indexOf("Baby Boys")>-1?jQuery(".mkt_topnav--link-baby").removeClass("mkt_topnav--link-notSelected").addClass("mkt_topnav--link-selected"):n.indexOf("Tall")>-1&&jQuery(".sidebar-navigation--item:contains('Dresses')").length>0||n.indexOf("Petite")>-1?jQuery(".mkt_topnav--link-women").removeClass("mkt_topnav--link-notSelected").addClass("mkt_topnav--link-selected"):(n.indexOf("Tall")>-1||n.indexOf("Big")>-1)&&jQuery(".mkt_topnav--link-men").removeClass("mkt_topnav--link-notSelected").addClass("mkt_topnav--link-selected")};jQuery(document).on("wcdDataLayer:ready",function(){if("complete"===document.readyState)updateTopnavDropdowns();else var n=setInterval(function(){"complete"===document.readyState&&(clearInterval(n),updateTopnavDropdowns())},100)}),jQuery(window).load(function(){"/profile/customer_value.do"==location.pathname&&(jQuery("body").attr("style","font-family: Verdana,Arial,Sans-serif; font-size:11px;"),("medium"==gap.Mediaqueries.currentBP.size||"small"==gap.Mediaqueries.currentBP.size)&&jQuery("#topNav").attr("style","display:none !important;"))}),jQuery(document).ready(function(){jQuery(".nav-trigger,.menuListItem.gm_category").on("click",function(){jQuery(window).width()<768&&setTimeout(function(){jQuery(".nav-shift").hasClass("category-nav-is-open")?jQuery("#wcd-division-nav").hide():(location.pathname.indexOf("division.do")>0||location.pathname.indexOf("home.do")>0||"/"==location.pathname)&&jQuery("#wcd-division-nav").fadeIn()},60)}),window.innerWidth<768&&(location.pathname.indexOf("division.do")>0||location.pathname.indexOf("home.do")>0||"/"==location.pathname)&&jQuery(".off-canvas--isolation-layer").on("touchstart",function(){jQuery(window).width()<768&&jQuery("#wcd-division-nav").fadeIn()})});var wcdDivisionNavManager={init:function(){window.innerWidth<768&&(location.pathname.indexOf("division.do")>0||location.pathname.indexOf("home.do")>0||"/"==location.pathname)&&jQuery("#topNav").after(jQuery(".wcd-division-nav").show()),jQuery(document).on("wcdDataLayer:ready",function(){var n=wcdLib.getCurrentDivisionName();"undefined"!=typeof n&&null!==n?(n=n.replace(/\'/g,"").toLowerCase(),n=n.replace("&amp;#39;","")):n="";var o=jQuery(".wcd-division-nav__text-item[data-division='"+n+"']");o.addClass("active"),jQuery(".wcd-division-nav__text-item").each(function(n,o){var e=jQuery(o);e.attr("data-scrollpos",parseInt(e.offset().left))});var e=parseInt(o.attr("data-scrollpos"))-(window.innerWidth/2-o.width()/2);jQuery(".wcd-division-nav__items").scrollLeft(e)})}};wcdDivisionNavManager.init();
+
+
+
+
+
+
+/* mega nav js */
+function launchMegaNav(){function e(e,a){function r(e,r){if(s=jQuery(r),d=!1,s.length>0&&(l=s.data("cid"),i=s.data("site-cat-key"),""!==l))for(t=0;t<a.length;t++){if(n=a[t],u=n.indexOf(l),u>-1&&"undefined"!=typeof i){if(o.columns[t].hasOwnProperty("width")||-1===i.indexOf("Shop by Category"))o.columns[t].hasOwnProperty("width")||(o.columns[t].width="1",o.length+=1);else{o.columns[t].width=2,o.length+=2,s=s.clone();var m=s.find("ul").find("li"),_=m.slice(Math.ceil(m.length/2)).detach(),y="";_.each(function(e){y+=this.outerHTML}),_=jQuery('<div class="sds_g-1-2"><ul class="catnav--list">'+y+"</ul></div>"),m.parent().wrap('<div class="sds_g-1-2">'),s.append(_),s.addClass("sds_grid-root"),s.find("span.catnav--trimheader").addClass("sds_g-1-1")}o.columns[t].content[u]=s[0].outerHTML,d=!0;break}if(c.indexOf(l)>-1){d=!0;break}}}var o={};o.columns=[],o.length=0;var d,u,c=a.pop();o.columns=[];for(var m=0;m<a.length;m++)o.columns.push({content:a[m]});e.each(r);for(var _,y=0;y<o.columns.length;y++)_=o.columns[y].content,o.columns[y].content=_.filter(function(e){return"number"!=typeof e});return o}function a(e,a,t,n,s){n=n||jQuery('<div class="mm_flyOut dynLinkPull '+t+' sds_g-1-1"></div>'),n.data("category_tid",a),s=s||{};var l;""!==t?(l=jQuery('<div class="wcdNavlimit"></div>'),l.appendTo(n),n.data("category_tid",a)):(l=jQuery('<div class="sds_g-1-2 mm_columnContainer"></div>'),l.data("category_tid",a),n.find(">div").append(l));for(var i,r,o=e.columns,d=e.length,u=0;u<o.length;u++){if(i=o[u],""===t&&"2"===i.width&&(i.Width="1",d-=1),24%d===0){var c=24/d;r="mm_grid_4 sds_g-"+i.width*c+"-"+d*c}else r="mm_grid_5 sds_g-"+i.width+"-"+d;l.append('<div class="'+r+'"><ul class="sds_sp_horizontal_lg">'+i.content.join("")+"</ul></div>")}return s.headline&&jQuery("<h3>"+s.headline+"</h3>").prependTo(l),n}var t,n,s="",l="",i="",r=jQuery(".catnav--list[aria-label='Women categories'] > li"),o=[[1094906,1039280,5363],[1036191],[55182,1019570],[41586,1016051],[1069633]],d=a(e(r,o),"w","womensFlyout");d.appendTo(".mkt_topnav--link-women");var u=jQuery(".catnav--list[aria-label='Women&#39;s Plus categories'] > li, .catnav--list[aria-label='Women\\'s Plus categories'] > li"),c=[[1094674,1039164,7788],[1036207],[1092433],[55183],[1069640]],m=a(e(u,c),"wp","plusFlyout");m.appendTo(".mkt_topnav--link-women-plus");var _=jQuery(".catnav--list[aria-label='Maternity categories'] > li"),y=[[1094684,1065183,7791],[1036208],[1092435],[55185],[1069639]],p=a(e(_,y),"mat","maternityFlyout");p.appendTo(".mkt_topnav--link-maternity");var v=jQuery(".catnav--list[aria-label='Men categories'] > li"),h=[[1043886,1039290,5158],[1036209],[1031097],[48385,55197],[1069574]],g=a(e(v,h),"m","mensFlyout");g.appendTo(".mkt_topnav--link-men");var f=jQuery(".catnav--list[aria-label='Girls categories'] > li"),j=[[1094743,1092613,1039307,48771],[1036216],[1007069,1015504],[48395,54857],[1069652]],Q=a(e(f,j),"g","girlsFlyout");Q.appendTo(".mkt_topnav--link-girls");var k=jQuery(".catnav--list[aria-label='Boys categories'] > li"),b=[[1094758,1084237,1071417,48805],[1036210],[1006914,1015530],[48396,54865],[1069634]],w=a(e(k,b),"b","boysFlyout");w.appendTo(".mkt_topnav--link-boys");var T=jQuery(".catnav--list[aria-label='Toddler Girls categories'] > li"),C=jQuery(".catnav--list[aria-label='Toddler Boys categories'] > li"),O=[[1094591,1017563,1073646,54835],[1073647],[1069828]],B=[[1094602,1071067,1073756,1040818],[1073744],[1071868]],z=jQuery('<div class="mm_flyOut dynLinkPull toddlerFlyout sds_g-1-1" data-category-tid=""><div class="wcdNavlimit"></div></div>');z=a(e(T,O),"TG","",z,{headline:'Toddler Girl <span class="mm_sizeRange">(12M-5T)</span>'}),z=a(e(C,B),"TB","",z,{headline:'Toddler Boy <span class="mm_sizeRange">(12M-5T)</span>'}),z.appendTo(".mkt_topnav--link-toddler");var M=jQuery(".catnav--list[aria-label='Baby Girls categories'] > li"),F=jQuery(".catnav--list[aria-label='Baby Boys categories'] > li"),S=[[1094770,1017553,1057444,1077947,60396],[1077949,1076853],[1070200]],x=[[1094778,1077229,1077231,1078107,1006541],[1077950,1077233],[107723]],G=jQuery('<div class="mm_flyOut dynLinkPull babyFlyout sds_g-1-1"><div class="wcdNavlimit"></div></div>');G=a(e(M,S),"BG","",G,{headline:'Baby Girl <span class="mm_sizeRange">(0-24M)</span>'}),G=a(e(F,x),"BB","",G,{headline:'Baby Boy <span class="mm_sizeRange">(0-24M)</span>'}),G.appendTo(".mkt_topnav--link-baby"),jQuery('.mensFlyout span[aria-label*="New & Now"]').each(function(){var e=jQuery(this),a=e.next();1===a.children(".reporting-child-ele--responsive-nav").length&&e.hide()}),jQuery('.mm_columnContainer [aria-label="Shop by Size"], .mm_columnContainer [aria-label="Shop By Size"]').each(function(){jQuery(this).next().children().eq(1).hide()});var N=jQuery(".mm_flyOut .catnav--trimheader, .mm_flyOut .catnav--header");N.addClass("sds_color--g2 sds_tx_left ds_line-height--1-65 sds_sp"),jQuery(".mm_flyOut").each(function(){var e=jQuery(this).find("ul.sds_sp_horizontal_lg"),a=jQuery(this).find(".mm_columnContainer h3");0!==e.length&&(e.eq(0).removeClass("sds_sp_horizontal_lg").addClass("sds_sp_right_lg sds_sp_left_sm"),e.last().removeClass("sds_sp_horizontal_lg").addClass("sds_sp_left_lg sds_sp_right_sm"),2===a.length&&(a.eq(0).addClass("sds_sp sds_sp_right_lg sds_sp_left_sm"),a.last().addClass("sds_sp sds_sp_left_lg sds_sp_right_sm")))});var P,L={placement:"#mainContent",ele:jQuery('<div class="mm_shadow" style="display:none"></div>'),fadeSpeed:250,insert:function(){L.ele.prependTo(L.placement)},show:function(){L.ele.fadeIn(L.fadeSpeed)},hide:function(){P=setTimeout(function(){L.ele.fadeOut(L.fadeSpeed)},30)}};L.insert();var R=function(){var e=jQuery(window),a=jQuery("#responsiveUniversalBar").height()+jQuery("#topNav").height(),t=e.scrollTop()+e.height()-a;return 350>t&&(t=350),t};jQuery(".mkt_topnav--link").on("touchstart",function(e){jQuery(".mkt_topnav--link").off("mouseenter")});var W;jQuery(".mkt_topnav--link").on("mouseenter",function(e){var a=jQuery(this),t=a.find(".mm_flyOut"),n=a.children("a");"block"!==t.css("display")&&(W=setTimeout(function(){t.css("max-height",R),t.fadeIn(250),clearTimeout(P),jQuery(".mkt_topnav--link"),n.addClass("open"),L.show()},175))}),jQuery(".mkt_topnav--link").on("mouseleave",function(e){clearTimeout(W);var a=jQuery(this),t=a.find(".mm_flyOut");a.children("a").removeClass("open"),t.fadeOut(250),L.hide()});var q=jQuery(".mm_flyOut .catnav--list a");q.click(function(e){e.preventDefault();var a,t=jQuery(this),n=t.attr("aria-label").replace(/[^A-Z0-9]+/gi,"_"),s=t.closest(".mm_flyOut"),l=t.closest(".mm_columnContainer");a=l.length>0?"flyout_"+l.data("category_tid")+"_"+n:"flyout_"+s.data("category_tid")+"_"+n,window.mkt_contentClickTracking(this,a,!0)}),jQuery(document).trigger("wcd:meganav-ready");}
+
+jQuery(document).ready(function(){
+	if(window.innerWidth > 1024){
+		if(location.pathname=='/' || location.pathname=='/browse/home.do' || location.pathname=='/browse/division.do' || location.pathname=='/browse/category.do' || location.pathname=='/browse/product.do' || location.pathname=='/browse/search.do'){
+	    	jQuery('#divisionContainer').addClass("megaNav");
+      		launchMegaNav();
+  		}
+  	}
+});
+
+
+</script>
+<!-- END: /0014/611/049/cn14611049.html -->

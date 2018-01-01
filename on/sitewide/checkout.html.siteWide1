@@ -1,0 +1,165 @@
+<!-- BEGIN: /0012/444/389/cn12444389.html --><!-- @TemplateContentLayout(templateRegionName:"checkout.html.siteWide1") -->
+
+<!-- BEGIN - WCD Sitewide Container 7 - Checkout -->
+<!-- BEGIN: /0012/443/906/cn12443906.html --><div id="contentItemContainer10000611" class="12443906">
+<!-- BEGIN WCD Checkout code -->
+
+<!-- 
+  1. Rewards in Checkout fix 
+  2. Giftcard Devalue override
+  3. Hide 'More About Rewards' in checkout
+  4. Checkout ship option display, remove decimal override
+  5. 11/9/17 Checkout Override
+-->
+
+
+<script type="text/javascript">
+//BEGIN Rewards in Checkout - TO BE RE-WRAPPED; CHECK IF STILL NEEDED WITH PDM -->
+if( location.pathname == '/checkout/order.do' ) {
+
+jQuery.wcdSharedOverride_rewardsInCheckout = function() {
+	jQuery(window).load( function(e) {
+		if( jQuery('#summaryRewardReminder').length > 0 ) jQuery('#summaryRewardReminder').show().delay(1);
+		if( jQuery('#billingRewardCodeInput').length > 0 ) jQuery('#billingRewardCodeInput').show().delay(1);
+
+		if( window["checkout"] != null && checkout.controller && checkout.controller.modules && checkout.controller.modules.signIn && checkout.controller.modules.signIn.setSignInResponse ) {
+			checkout.controller.modules.signIn.setSignInResponse = checkout.controller.modules.signIn.setSignInResponse.wrap( function( om, responseVo ) {
+				om( responseVo );
+				var signInModuleController = checkout.controller.modules.signIn;
+				if( signInModuleController.getModuleCompleteStatus("signIn") == true ) {
+					if( jQuery('#summaryRewardReminder').length > 0 ) jQuery('#summaryRewardReminder').show().delay(1);
+					if( jQuery('#billingRewardCodeInput').length > 0 ) jQuery('#billingRewardCodeInput').show().delay(1);
+				}
+			});
+		}
+	});
+}
+jQuery.wcdSharedOverride_rewardsInCheckout();
+
+}
+
+//END Rewards in Checkout - TO BE RE-WRAPPED; CHECK IF STILL NEEDED WITH PDM -->
+
+
+// BEGIN Gift Card DeValue copy (CNOV-101) -->
+if( location.pathname == '/checkout/order.do' ) {
+
+jQuery.wcdSharedOverride_giftCardDevalueCopy = function() {
+	jQuery(window).load( function(e) {
+		jQuery("#billingSummaryInputGiftCardPin, #billingInputGiftCardPin").after("<div id='giftCardCopyAdded' style='margin-left:15px;margin-bottom:15px;color:#736967;font-size: 87.5%;'>Please note: when using multiple gift cards, gift card values will be applied in order of decreasing value.</div>").delay(1);
+		jQuery("#billingGiftCardBalanceCardPin").after("<div id='giftCardCopyPopUpAdded' style='margin-top:10px;margin-left:15px;margin-bottom:15px;font-size: 87.5%;'>Please note: when using multiple gift cards, gift card values will be applied in order of decreasing value.</div>").delay(1);
+	});
+}
+jQuery.wcdSharedOverride_giftCardDevalueCopy();
+
+}
+// END Gift Card DeValue copy (CNOV-101) -->
+
+
+//BEGIN Hide More About Rewards in checkout, CHECK WHETHER STILL NEEDED, ON ONOL ONLY -->
+
+if( location.pathname == "/checkout/order.do" ) {
+	jQuery( window ).load( function(e) {
+		if( jQuery('#learnMoreTd').length > 0 ) jQuery('#learnMoreTd').html("");
+	});
+}
+// END Hide More About Rewards in checkout, CHECK WHETHER STILL NEEDED, ON ONOL ONLY -->
+
+
+//BEGIN Checkout ship option Basic display/remove decimal -->
+if( location.pathname == '/checkout/order.do' ) {
+
+	var wcdShipOptionCheckoutTester = {
+		model: {
+			shipingId7to9on0201: '2012',
+    		shipingIdBasicon0201: '6003',
+    		shippingId3to5: '1304',
+			shipingIdExpon0201: '6015', 
+  			shippingId1: '2020'
+		},
+	init: function() {
+			var model = wcdShipOptionCheckoutTester.model;
+			jQuery(document).on('wcd_CheckoutTextNew:ready', function() {
+				var youSaveTimer = setTimeout( function() {
+					if(jQuery('#selectedShippingMethod' + model.shipingIdBasicon0201)!=''){
+						var currentPrice5to7 = jQuery('#shippingOptionsRadioText' + model.shipingIdBasicon0201).html();
+						if(typeof currentPrice5to7 !== "undefined"){
+							currentPrice5to7 = currentPrice5to7.replace(' - $0.00','');
+							jQuery('#shippingOptionsRadioText' + model.shipingIdBasicon0201 ). html(currentPrice5to7);
+						}
+					}
+					if(jQuery('#selectedShippingMethod' + model.shippingId3to5)!=''){
+						var currentPrice3to5 = jQuery('#shippingOptionsRadioText' + model.shippingId3to5).html();
+						if(typeof currentPrice3to5 !== "undefined"){
+							currentPrice3to5 = currentPrice3to5.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shippingId3to5 ). html(currentPrice3to5);
+						}
+					}
+					if(jQuery('#selectedShippingMethod' + model.shipingIdExpon0201)!=''){
+						var currentPriceE = jQuery('#shippingOptionsRadioText' + model.shipingIdExpon0201).html();
+						if(typeof currentPriceE !== "undefined"){
+							currentPriceE = currentPriceE.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shipingIdExpon0201 ). html(currentPriceE);
+						}
+					}
+					if(jQuery('#selectedShippingMethod' + model.shippingId1)!=''){
+						var currentPrice1 = jQuery('#shippingOptionsRadioText' + model.shippingId1).html();
+						if(typeof currentPrice1 !== "undefined"){
+							currentPrice1 = currentPrice1.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shippingId1 ). html(currentPrice1);
+						}
+					}
+					if(jQuery('.inputForm').find('.infoMessageText').html()!=''){
+						jQuery('.inputForm').find('.infoMessageText').hide();
+					}
+					if(jQuery('#shippingSummaryInputShippingOption').html()){
+						var newText = jQuery('#shippingSummaryInputShippingOption').html();
+						newText = newText.replace(' $0.00','');
+						jQuery('#shippingSummaryInputShippingOption').html(newText);
+					}
+					
+				}, 1000 );
+			});
+
+			if( window["ccm"] != null && ccm.orderPlacement && ccm.orderPlacement.view && ccm.orderPlacement.view.setDataToPage ) { 
+					ccm.orderPlacement.view.setDataToPage = ccm.orderPlacement.view.setDataToPage.wrap( function( om ) {   
+							om(); 
+							jQuery(document).trigger('wcd_CheckoutTextNew:ready');
+					});
+			}
+	}
+	
+ }
+ wcdShipOptionCheckoutTester.init();
+}
+//END Checkout ship option Basic display/remove decimal -->
+
+
+
+//  11/9/17 Checkout Override - INC2165031|Sev2
+if (window.ccm) {
+	var oldPopulate = ccm.shipping.populateBillingAddressAsShippingAddress;
+	ccm.shipping.populateBillingAddressAsShippingAddress = function(responseVo) {
+		var shippingModule = responseVo.modules.shipping;
+		shippingModule.addressIdRo = shippingModule.addressId;
+		oldPopulate(responseVo);
+	};
+}
+//  END 11/9/17 Checkout Override-INC2165031|Sev2
+
+//Begin : 12/11 to 12/19 Change text for Give Back in Checkout
+if( location.pathname == '/checkout/order.do' && (jQuery("#givebackShippingOptionSummaryContainer").length > 0)) {
+
+jQuery("#givebackShippingOptionSummaryContainer ul li p").html("**We will donate $1 to our partner Boys & Girls Clubs of America when you select the <i>“Give Back** - FREE ($50 min)”</i> shipping option above.");
+
+}
+//End : Change text for Give Back in Checkout
+
+
+</script>
+
+<!-- END WCD Checkout code -->
+</div><!-- END: /0012/443/906/cn12443906.html -->
+<!-- END - WCD Sitewide Container 7 - Checkout -->
+
+<!-- END: /0012/444/389/cn12444389.html -->

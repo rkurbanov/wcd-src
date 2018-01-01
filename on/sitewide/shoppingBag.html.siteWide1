@@ -1,0 +1,470 @@
+<!-- BEGIN: /0012/444/389/cn12444389.html --><!-- @TemplateContentLayout(templateRegionName:"shoppingBag.html.siteWide1") -->
+
+<!-- BEGIN - WCD Sitewide Container 6 - Shopping bag -->
+<!-- BEGIN: /0014/516/464/cn14516464.html --><div id="contentItemContainer10000612" class="14516464">
+<!-- BEGIN WCD Shopping Bag code -->
+
+<!-- 
+  1. 11/22 change empty bag message 
+  2. Shopping bag iPhone Chrome hide grid/list
+  3. Ship options display, remove decimal overrides
+  4. BPX-903 Shopping bag-fill bluebar when EDFS is available 7/25/2017
+  5. promo in Bag fix
+  6. 11/16/17 : PLAT-938 - PDP Link Breakage from Bag
+  7. OCA bag tracking
+-->
+
+<!-- BEGIN Shopping Bag Override -->
+
+<script type="text/javascript">
+
+
+
+
+//Hide the Grid/List toggle on iPhone Chrome browser - Requested by Roja Imani 2016.09.29 -->
+
+if( location.pathname == '/buy/shopping_bag.do' ) {
+	
+jQuery(document).ready(function() {
+  var agent = navigator.userAgent;
+  // alert(agent);
+  if ( agent.indexOf('CriOS') > -1 && jQuery('.savedBagCol.listAndGridViewButtonContainer').length > 0 ) {
+    jQuery('.savedBagCol.listAndGridViewButtonContainer').hide();
+    jQuery('.listAndGridViewButtonContainer .listViewButton').click();
+  }
+});
+
+}
+
+
+
+// BEGIN Ship option Basic display/remove decimal -->
+
+if( location.pathname == '/buy/shopping_bag.do' || ( location.pathname == '/profile/validate_sign_in.do' && window["angular"] != null ) ) {
+
+/* Removing .00 from price information */
+
+window.angular && (function($) {
+  function WcdAngularDecorator(appName, targetName, dependencies, link) {
+
+    function _decorateTarget() {
+        var args = [].slice.call(arguments),
+            $delegate = args.pop(),
+            directive = $delegate[0],
+            hasCompile = _.isFunction(directive.compile),
+            oldCompile = (hasCompile && directive.compile) || $.noop;
+
+        function _decorateLink() {
+            var linkArgs = [].slice.call(arguments);
+            (oldCompile() || $.noop).apply(null, linkArgs);
+            link.apply(null, args.concat(linkArgs));
+        }
+
+        function _decorateCompile() {
+            return _decorateLink;
+        }
+        return _.assign(directive, {
+            compile: _decorateCompile
+        }) && $delegate;
+    }
+
+    function _targetProvider($provide) {
+        $provide.decorator(targetName, dependencies.concat(['$delegate', _decorateTarget]));
+    }
+
+    angular.module(appName).config(_targetProvider);  
+    return true; 
+  };
+
+  window.WcdAngularDecorator = WcdAngularDecorator;
+})(jQuery, window);
+
+window.WcdAngularDecorator && 
+WcdAngularDecorator(
+    'gid.app.shippingOptions.directives',
+    'shippingOptionsDirective',
+    ['personalizationService'],
+    function _shippingOptionsLink(personalizationDataProvider, scope, elm, attrs, ctrl) {
+      var $ = jQuery;
+      function _updateShippingOptions() {
+          _.each($(elm).find('.radioText span'), function(el) {
+            var $el = $(el),
+                priceUpdated = ($el.text() || '').split('.')[0];
+            $el.html(priceUpdated);
+          });
+      }
+      function _optionChangeWatcher() {
+        scope.$evalAsync(_updateShippingOptions);  
+      }
+      scope.$watch('shippingoptions', _optionChangeWatcher)
+      
+    }
+);
+
+  var wcd_ShoppingBagTextNew = {
+    model: {
+    		shipingId7to9on0201: '2012',
+    		shipingIdBasicon0201: '6003',
+    		shippingId3to5: '1304',
+			shipingIdExpon0201: '6015', 
+  			shippingId1: '2020', 
+  			shipingId7to9on0201Present: false,
+  			shipingIdBasicon0201Present: false, 
+			shipingIdExpon0201Present: false,
+  			shippingId3to5Present: false,
+			shippingId1Present: false
+    },
+
+    init: function() {
+      var model = wcd_ShoppingBagTextNew.model;
+			
+			/*jQuery(document).on('wcd_ShoppingBagTextNew:ready', function() {
+					var youSaveTimer = setTimeout( function() {
+						if(model.shipingId7to9on0201Present){
+							var currentPrice7to9 = jQuery('#shippingOptionsRadioText' + model.shipingId7to9on0201).find('span').html();
+							currentPrice7to9 = currentPrice7to9.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shipingId7to9on0201 ).find('span'). html(currentPrice7to9);
+						}
+						if(model.shipingIdBasicon0201Present){
+							if(jQuery('#shippingOptions' + model.shipingIdBasicon0201).attr('disabled')=='disabled'){ 
+								jQuery('#shippingOptionsRadioText' + model.shipingIdBasicon0201).css('font-size','87.5%');
+							}
+							var currentPriceB = jQuery('#shippingOptionsRadioText' + model.shipingIdBasicon0201).find('span').html();
+							currentPriceB = currentPriceB.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shipingIdBasicon0201 ).find('span'). html(currentPriceB);
+						}
+
+						if(model.shippingId3to5Present){
+							var currentPrice3to5 = jQuery('#shippingOptionsRadioText' + model.shippingId3to5).find('span').html();
+							currentPrice3to5 = currentPrice3to5.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shippingId3to5 ).find('span'). html(currentPrice3to5);
+						}
+						if(model.shipingIdExpon0201Present){
+							var currentPriceE = jQuery('#shippingOptionsRadioText' + model.shipingIdExpon0201).find('span').html();
+							currentPriceE = currentPriceE.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shipingIdExpon0201 ).find('span'). html(currentPriceE);
+						}
+						if(model.shippingId1Present){
+							var currentPrice1 = jQuery('#shippingOptionsRadioText' + model.shippingId1).find('span').html();
+							currentPrice1 = currentPrice1.replace('.00','');
+							jQuery('#shippingOptionsRadioText' + model.shippingId1 ).find('span'). html(currentPrice1);
+						}
+					}, 1000 );
+				});*/
+		  
+	      // Loop thru ship options; this decorator will run on load, whenever new option selected or shopping bag item updated/removed
+	      var shoppingBagTransformerModule = angular.module('gid.transformer.shoppingBagTransformer');
+	      shoppingBagTransformerModule.config(function($provide) {
+	        $provide.decorator('shoppingBagTransformer', function($delegate) {
+
+	          model.timesDecoratorRuns++;
+	          var oldTransformResponse    = $delegate.transformResponse;
+	          var oldTransformBagResponse = $delegate.transformBagResponse;
+	          
+
+	          var overrideShippingData = function(jsonData) {
+	          	var model = wcd_ShoppingBagTextNew.model;
+	            if (jsonData.shoppingBag && jsonData.shoppingBag.shippingInfo && jsonData.shoppingBag.shippingInfo.shippingOptions) {
+					var shipOptionsNew = jsonData.shoppingBag.shippingInfo.shippingOptions || [];
+					shipOptionsNew.forEach(function(elt, idx) {
+						/*if( elt.shippingId == model.shipingId7to9on0201 ) {
+							model.shipingId7to9on0201Present = true;
+						}
+						if( elt.shippingId == model.shipingIdBasicon0201 ) {
+							model.shipingIdBasicon0201Present = true;
+						}
+						if( elt.shippingId == model.shippingId3to5) {
+							model.shippingId3to5Present = true;
+						}*/
+						if( elt.shippingId == model.shipingIdExpon0201 ) {
+							model.shipingIdExpon0201Present = true;
+							if( elt.selected && elt.selected.toString() == 'true' ) {
+								elt.message = 'Orders placed on weekends, holidays or weekdays after 3:00 PM ET / 12:00PM PT will require an additional business day.';
+							}
+						}
+						if( elt.shippingId == model.shippingId1 ) {
+							model.shippingId1Present = true;
+							if( elt.selected && elt.selected.toString() == 'true' ) {
+								elt.message = 'Orders placed on weekends, holidays or weekdays after 3:00 PM ET / 12:00PM PT will require an additional business day.';
+							}
+						}
+					});	
+					jsonData.shoppingBag.shippingInfo.shippingOptions = shipOptionsNew;
+	            }
+				//jQuery(document).trigger('wcd_ShoppingBagTextNew:ready');				
+	            return jsonData;
+	          };
+
+	          $delegate.transformResponse = function(data, headers) {
+	            var jsonData = oldTransformResponse(data, headers);			
+	            return overrideShippingData(jsonData);
+	          };
+
+	          $delegate.transformBagResponse = function(data) {
+	            var jsonData = oldTransformBagResponse(data);
+					
+	            return overrideShippingData(jsonData);
+	          }
+	          return $delegate;
+	        });
+	      });
+	    }
+	  }
+	  wcd_ShoppingBagTextNew.init();
+	}
+
+
+// END Ship option Basic display/remove decimal -->
+
+
+// Begin: BPX-903 Shopping bag-fill bluebar when EDFS is available 7/25/2017-->
+
+if( location.pathname == '/buy/shopping_bag.do' && window["angular"] != null ) {
+
+window.angular && (function($) {
+  function WcdAngularDecorator(appName, targetName, dependencies, link) {
+
+    function _decorateTarget() {
+        var args = [].slice.call(arguments),
+            $delegate = args.pop(),
+            directive = $delegate[0],
+            hasCompile = _.isFunction(directive.compile),
+            oldCompile = (hasCompile && directive.compile) || $.noop;
+
+        function _decorateLink() {
+            var linkArgs = [].slice.call(arguments);
+            (oldCompile() || $.noop).apply(null, linkArgs);
+            link.apply(null, args.concat(linkArgs));
+        }
+
+        function _decorateCompile() {
+            return _decorateLink;
+        }
+        return _.assign(directive, {
+            compile: _decorateCompile
+        }) && $delegate;
+    }
+
+    function _targetProvider($provide) {
+        $provide.decorator(targetName, dependencies.concat(['$delegate', _decorateTarget]));
+    }
+
+    angular.module(appName).config(_targetProvider);  
+    return true; 
+  };
+
+  window.WcdAngularDecorator = WcdAngularDecorator;
+})(jQuery, window);
+
+window.WcdAngularDecorator && WcdAngularDecorator(
+  
+    'gid.app.freeShippingQualification.directives',
+    'freeShippingQualificationDirective',
+    ['personalizationService'],
+    function _shippingOptionsLink(personalizationDataProvider, scope, elm, attrs, ctrl) {
+      var $ = jQuery;
+      
+      function wcdFillEveryDayShippingBar(){
+          
+      if ( ($('#free-shipping-qualification-section').length) && $.inArray($('span.qualification-message.label-a_universal.ng-binding')[0].innerText, [ 'Select FREE Every Day shipping in checkout', 'You’ve qualified for FREE 3-5 day shipping!', 'You’ve qualified for FREE 2-3 day shipping!', 'You’ve qualified for FREE next day shipping!'] )>=0){ 
+
+        jQuery('div.ui-progressbar-value.ui-widget-header.ui-corner-left').css('width','100%');
+      
+      }
+
+        }
+
+        function _optionChangeWatcher() {
+          scope.$evalAsync(wcdFillEveryDayShippingBar);  
+        }
+        scope.$watch('shippingoptions', _optionChangeWatcher)
+      
+    }//end of wcdFillEveryDayShippingBar
+); //end of WcdAngularDecorator
+
+}//end of if
+
+// End : BPX-903 Shopping bag-fill bluebar when EDFS is available -->
+
+
+
+//Begin 11/6/2017 : Promo in bag fix -->
+
+window.promoInBagChange = 'Test';
+
+if( location.pathname == '/buy/shopping_bag.do' && window["angular"] != null ) {
+window.angular && (function($) {
+  function WcdAngularDecorator(appName, targetName, dependencies, link) {
+    function _decorateTarget() {
+        var args = [].slice.call(arguments),
+            $delegate = args.pop(),
+            directive = $delegate[0],
+            hasCompile = _.isFunction(directive.compile),
+            oldCompile = (hasCompile && directive.compile) || $.noop;
+        function _decorateLink() {
+            var linkArgs = [].slice.call(arguments);
+            (oldCompile() || $.noop).apply(null, linkArgs);
+            link.apply(null, args.concat(linkArgs));
+        }
+        function _decorateCompile() {
+            return _decorateLink;
+        }
+        return _.assign(directive, {
+            compile: _decorateCompile
+        }) && $delegate;
+    }
+    function _targetProvider($provide) {
+        $provide.decorator(targetName, dependencies.concat(['$delegate', _decorateTarget]));
+    }
+    angular.module(appName).config(_targetProvider);
+    return true;
+  };
+  window.WcdAngularDecorator = WcdAngularDecorator;
+})(jQuery, window);
+window.WcdAngularDecorator && WcdAngularDecorator(
+    'gid.app.appliedPromo.directive',
+    'appliedPromoDirective',
+    ['personalizationService'],
+    function _shippingOptionsLink(personalizationDataProvider, scope, elm, attrs, ctrl) {
+      var $ = jQuery;
+      function wcdChangePromoMessage(){
+            //write code to replace the promo text
+             var promoText = 'Promotion applied. You will see your card-specific savings at checkout when you pay with your Gap Inc. credit card';
+              var cardArray = ['FFCARD','BRCARD','BRNOW','SHIPBR','WELCOMECC','LUXE','MYCARD','NEWLOVE','BACKTOGAP','SHOPGC','NAVYIST','NAVYEST','NAVIEST','NEWBRC10','SILVERGAP','GAPCARDOCA','PRE15','NEWBRC','WELCOME','BDAYOCT','BDAYNOV','LUXE2017','SIGNATURE','TUESDAYS','WELCOMEBR','GAPCARDNOW','PRE20','SHOPOCA','LUXE2018','CARD40','BRCARD40','40CARD','BRCARD50','FAMFIRST','PLUS10','ONCBF','FRIYAY','HOLIYAY25','HOLIYAY30','HOLIYAY15','CARDVIP','CHEERS','HAPPY','EXCLUSIVE','BFAPPEASE','ONCPS','NEWCARD','QBD86ATC83','BDAYDEC','BDAYJAN','18ATCBD20','BENEFITS15','SILVER2018'];
+ 
+       var promoslist = jQuery('.applied-promo-with-flyouts');
+      var appiledpromosList = jQuery('.applied-promo-container.ng-isolate-scope');
+      appiledpromosList.each(function () {
+        console.log(appiledpromosList.find('.applied-promo').text());
+      });
+        
+      
+      promoslist.each(function () {
+        var myThis = jQuery(this);
+        var isPromo = cardArray.indexOf(myThis.find('.applied-promo').text()) !== -1;       
+        var appiledMessage = myThis.find('.color--g3_universal').text();
+        var distAmt = myThis.find('.label-a_universal').text();
+        if (isPromo) {
+          var flyout = myThis.find('flyout');
+          // flyout.find('.ng-binding').hide();
+          flyout.find('.ng-scope').html(promoText);
+          myThis.find('.title').css('color','#0466ca');  
+            if(appiledMessage === "Applied to 0 items"){
+                  myThis.find('.color--g3_universal').html("View savings in checkout");
+             }
+           if(distAmt === "— —"){
+                  myThis.find('.label-a_universal').hide();
+             }
+        }
+      });
+            
+        }
+        function _optionChangeWatcher() {
+          scope.$evalAsync(wcdChangePromoMessage);
+        }
+        scope.$watch('promotions', _optionChangeWatcher)
+    }
+);
+}
+
+//End 11/6/2017 : Promo in bag fix -->
+
+// 11/16/17 : PLAT-938 - PDP Link Breakage from Bag - v2
+if( location.pathname == '/buy/shopping_bag.do' && window["angular"] != null ) {
+  window.angular && (function($) {
+    function WcdAngularDecorator(appName, targetName, dependencies, link) {
+      function _decorateTarget() {
+          var args = [].slice.call(arguments),
+              $delegate = args.pop(),
+              directive = $delegate[0],
+              hasCompile = _.isFunction(directive.compile),
+              oldCompile = (hasCompile && directive.compile) || $.noop;
+          function _decorateLink() {
+              var linkArgs = [].slice.call(arguments);
+              (oldCompile() || $.noop).apply(null, linkArgs);
+              link.apply(null, args.concat(linkArgs));
+          }
+          function _decorateCompile() {
+              return _decorateLink;
+          }
+          return _.assign(directive, {
+              compile: _decorateCompile
+          }) && $delegate;
+      }
+      function _targetProvider($provide) {
+          $provide.decorator(targetName, dependencies.concat(['$delegate', _decorateTarget]));
+      }
+      angular.module(appName).config(_targetProvider);
+      return true;
+    };
+    window.WcdAngularDecorator = WcdAngularDecorator;
+  })(jQuery, window);
+  window.WcdAngularDecorator && WcdAngularDecorator(
+      'gid.app.shoppingBag.directives',
+      'shoppingBagLineItemsDirective',
+      ['personalizationService'],
+      function _shippingOptionsLink(personalizationDataProvider, scope, elm, attrs, ctrl) {
+        function wcdChangeItemProductUrl(){
+            var selectedObj = jQuery('dd.productName a');
+            updateUrlObject(selectedObj);
+            selectedObj = jQuery(".editBagPopup .editBagProductName");
+            updateUrlObject(selectedObj);
+            selectedObj = jQuery(".itemMessageAlert");
+            updateUrlObject(selectedObj);
+            var selectedObj = jQuery('dd.gridProductName a');
+            updateUrlObject(selectedObj);
+          }
+          function _optionChangeWatcher() {
+            scope.$evalAsync(wcdChangeItemProductUrl);
+          }
+          function updateUrlObject(selectedObj) {
+            if( selectedObj.length > 0 ) {
+                selectedObj.each(function(idx, elt){
+                  var selectedItemObj = jQuery( elt );
+                  if( typeof selectedItemObj.attr("href") !== "undefined" ) {
+                    var params = getParams(selectedItemObj.attr("href"));
+                    if(params && params["pid"]) {
+                      var paramsPid = params["pid"];
+                      paramsPid = (paramsPid.length > 9) ? paramsPid.slice(0, 9) : paramsPid;
+                      var href = selectedItemObj.attr("href");
+                      selectedItemObj.attr("href", updateUrlParameter(href, 'pid', paramsPid));
+                    }
+                  }
+                });
+              }
+          }
+          function updateUrlParameter(url, param, value){
+               var regex = new RegExp('('+param+'=)[^\&]+');
+              return url.replace( regex , '$1' + value);
+          }
+          function getParams(url) {
+              var params = {};
+              var match = url.match(/\?(.*)$/);
+
+              if (match && match[1]) {
+                  match[1].split('&').forEach(function (pair) {
+                      pair = pair.split('=');
+                      params[pair[0]] = pair[1];
+                  });
+              }
+
+              return params;
+          }
+          scope.$watch('items', _optionChangeWatcher)
+      }
+  );
+}
+// End PLAT-938 - PDP Link Breakage from Bag
+</script>
+
+<!-- BEGIN OCA tracking updates -->
+<script type="text/javascript">
+var s={tl:function(){},c_w:function(){}},ocaBagTrackingOverrides={debugMode:!1,ocaCardAttribute:"ONCRDPREAPVL",welcomeTemplateProcessed:!1,legalTemplateProcessed:!1,personalInfoTemplateProcessed:!1,init:function(){jQuery(document).ready(function(e){var a=ocaBagTrackingOverrides;if(location.search.indexOf("ocaDebug=true")>-1&&(a.debugMode=!0),a.debugMode&&console.log("check for gap and gap.CardPreApprovalOverlay",typeof gap,typeof gap.CardPreApprovalOverlay),personalizationService.model.isPersonalizationDataReady){var o=a.findCardType();""!=o&&(a.debugMode&&console.log("user pre-approved"),a.trackEvent("OCA Bag - Ad View"))}else personalizationService.api.onPersonalization(function(e){var o=a.findCardType();""!=o&&(a.debugMode&&console.log("user pre-approved"),a.trackEvent("OCA Bag - Ad View"))});"undefined"!=typeof gap&&"undefined"!=typeof gap.CardPreApprovalOverlay&&("function"==typeof gap.CardPreApprovalOverlay.openModel&&(gap.CardPreApprovalOverlay.openModel=gap.CardPreApprovalOverlay.openModel.wrap(function(e,a){e(a);var o=ocaBagTrackingOverrides;o.debugMode&&console.log("openModel wrapped - "+a),o.waitForEl(".modal--close-button",function(){o.processTemplate(a)})})),"undefined"!=typeof gap.CardPreApprovalOverlay.contentViewModel&&"function"==typeof gap.CardPreApprovalOverlay.contentViewModel.processNextModel&&(gap.CardPreApprovalOverlay.contentViewModel.processNextModel=gap.CardPreApprovalOverlay.contentViewModel.processNextModel.wrap(function(e,a){e(a);var o=ocaBagTrackingOverrides;o.debugMode&&console.log("processNextModel wrapped - "+a,"does modal close exist?",jQuery(".modal--close-button").length),o.waitForEl(".modal--close-button",function(){o.processTemplate(a)})})),"undefined"!=typeof gap.CardPreApprovalOverlay.contentViewModel&&"function"==typeof gap.CardPreApprovalOverlay.processCardEnrollmentService&&(gap.CardPreApprovalOverlay.contentViewModel.processCardEnrollmentService=gap.CardPreApprovalOverlay.contentViewModel.processCardEnrollmentService.wrap(function(e){e();var a=ocaBagTrackingOverrides;a.debugMode&&console.log("processCardEnrollmentService wrapped","does modal close exist?",jQuery(".modal--close-button").length),a.waitForEl(".modal--close-button",function(){var e="card-preapproval-thanks-template",o=jQuery(".pre-approval--tnc--outer .heading-c_universal");o.length>0&&o.text().indexOf("You're approved")>-1&&(e="card-preapproval-confirmation-template"),a.processTemplate(e)})})))})},processTemplate:function(e){var a=ocaBagTrackingOverrides;if(a.debugMode&&console.log("Processing "+e),"card-preapproval-signin-template"==e)a.trackEvent("OCA Bag - Sign In - view"),jQuery(".modal--content .pre-approval--signin-form button[data-bind*='enable:enableFormSubmitProperties']").click(function(){a.trackEvent("OCA Bag - Sign In - Click Sign-In")});else if("card-preapproval-welcome-template"==e)a.trackEvent("OCA Bag - Begin Now - view"),jQuery(".modal--content .pre-approval--welcome--outer button[data-bind*='processNextModel']").click(function(){a.trackEvent("OCA Bag - Begin Now - Accept Offer (Begin Now) - click")}),jQuery(".modal--content .pre-approval--welcome--outer button[data-bind*='processNoThanksService']").click(function(){a.trackEvent("OCA Bag - Begin Now - Not Now, Thank You - click")});else if("card-preapproval-legal-terms-template"==e)a.trackEvent("OCA Bag - Terms - view"),jQuery(".modal--content .pre-approval--tnc--outer button[data-bind*='processNextModel']").click(function(){a.trackEvent("OCA Bag - Terms - Agree - click")}),jQuery(".modal--content .pre-approval--tnc--outer button[data-bind*='closeModel']").click(function(){a.trackEvent("OCA Bag - Terms - Cancel - click")});else if("card-preapproval-personal-info-template"==e)a.trackEvent("OCA Bag - Personal Info - view"),jQuery(".modal--content .pre-approval--personal-info--outer button[data-bind*='enableFormSubmitProperties']").click(function(){a.trackEvent("OCA Bag - Personal Info - Submit - click")});else if("card-preapproval-confirmation-template"==e){var o=a.findCardType();a.trackEvent("OCA Bag - "+o+" Confirmation (Approval) - view"),jQuery(".modal--content #pre-approval-confirmation button#pre-approval--checkout[data-bind*='enableCheckoutButton']").click(function(){a.trackEvent("OCA Bag - Confirmation (Approval) - Continue Shopping - click")})}else if("card-preapproval-thanks-template"==e){var o=a.findCardType();a.trackEvent("OCA Bag - "+o+" Thanks - view"),jQuery(".modal--content button[data-bind*='closeModel']").click(function(){a.trackEvent("OCA Bag - Thanks - Continue Shopping - click")})}},findCardType:function(){var e=ocaBagTrackingOverrides,a="";if("undefined"!=typeof personalizationService&&"undefined"!=typeof personalizationService.model&&"undefined"!=typeof personalizationService.model.personalizationData&&"undefined"!=typeof personalizationService.model.personalizationData.personalizationInfoV1&&"undefined"!=typeof personalizationService.model.personalizationData.personalizationInfoV1.personalizationAttributes){var o=personalizationService.model.personalizationData.personalizationInfoV1.personalizationAttributes;o.forEach(function(o){"undefined"!=typeof o.attributes&&o.attributes.name.indexOf(e.ocaCardAttribute)>-1&&("PLCC"==o.attributes.value?a="plcc":"CBCC"==o.attributes.value&&(a="cbcc"))})}return a},waitForEl:function(e,a){var o=ocaBagTrackingOverrides;jQuery(e).length?a():setTimeout(function(){o.waitForEl(e,a)},100)},trackEvent:function(e){var a=ocaBagTrackingOverrides;if("undefined"!=typeof wcdLib&&"undefined"!=typeof wcdLib.trackValue)if(jQuery.isEmptyObject(wcdLib.pageDataLayer))jQuery(document).on("wcdDataLayer:ready",function(){setTimeout(function(){a.debugMode&&console.log("Tracking Fired - "+e),wcdLib.trackValue(this,e,e,"eVar7")},500)});else{setTimeout(function(){a.debugMode&&console.log("Tracking Fired - "+e),wcdLib.trackValue(this,e,e,"eVar7")},500)}}};ocaBagTrackingOverrides.init();
+</script>
+<!-- END OCA tracking updates -->
+
+<!-- END WCD Shopping Bag code -->
+</div><!-- END: /0014/516/464/cn14516464.html -->
+<!-- END - WCD Sitewide Container 6 - Shopping bag -->
+
+<!-- END: /0012/444/389/cn12444389.html -->
